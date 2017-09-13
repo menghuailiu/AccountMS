@@ -11,7 +11,7 @@ import patrickstar.com.accountms.dao.tb_flagDao;
 /**
  * Created by ios16 on 17/9/13.
  * 用于对便签表的增删改操作
- * 测试
+ *
  * ljm
  */
 public class DBFlag {
@@ -103,6 +103,10 @@ public class DBFlag {
     private List<tb_flag> query(){
         List<tb_flag> flagList = flagDao.loadAll();
        return flagList;
+    }
+
+    public void getxx(){
+
     }
 
 
