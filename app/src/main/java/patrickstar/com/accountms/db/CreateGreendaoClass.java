@@ -12,7 +12,7 @@ import de.greenrobot.daogenerator.Schema;
 
 /**
  * Created by ios16 on 17/9/13.
- * 用于编写创建greendao之前的准备
+ * 用于编写创建greendao之前的准备高规格
  */
 
 public class CreateGreendaoClass {
