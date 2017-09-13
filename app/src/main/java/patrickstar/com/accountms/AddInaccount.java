@@ -1,14 +1,17 @@
 package patrickstar.com.accountms;
 
 import android.app.Activity;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 /**
  * Created by ios17 on 17/9/13.
+ * ff
  */
 
 public class AddInaccount extends Activity {
@@ -31,5 +34,13 @@ public class AddInaccount extends Activity {
         spInType=(Spinner)findViewById(R.id.spInType);//获取"类别"下拉列表
         btnInSaveButton=(Button)findViewById(R.id.btnInSave);//获取"保存"按钮
         btnInCancelButton=(Button)findViewById(R.id.btnInCancel);//获取"取消"按钮
+
+        txtInTime.setOnClickListener(new View.OnClickListener() {//为"时间"文本框设置单击监听事件
+            @Override
+            public void onClick(View view) {
+                showDialog(DATE_DIALOG_ID);//显示日期选择对话框
+            }
+        });
+        //final Calendar c=Calendar.getInstance();
     }
 }
