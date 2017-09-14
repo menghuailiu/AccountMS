@@ -105,10 +105,6 @@ public class DBFlag {
        return flagList;
     }
 
-    public void getxx(){
-
-    }
-
 
     /**
      * 相等查询,where参数中可以添加多个相等的条件
