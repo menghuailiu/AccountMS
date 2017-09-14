@@ -1,13 +1,21 @@
 package patrickstar.com.accountms;
 
 import android.app.Activity;
-import android.icu.util.Calendar;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import java.util.Calendar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import patrickstar.com.accountms.dao.tb_inaccountDao;
+import patrickstar.com.accountms.db.DBInAcount;
+import patrickstar.com.accountms.model.tb_inaccount;
 
 /**
  * Created by ios17 on 17/9/13.
@@ -41,6 +49,70 @@ public class AddInaccount extends Activity {
                 showDialog(DATE_DIALOG_ID);//显示日期选择对话框
             }
         });
-        //final Calendar c=Calendar.getInstance();
+        btnInSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {//为"保存"按钮设置监听事件
+                String strInMoney=txtInMoney.getText().toString();//获取"金额"文本框的值
+                if(!strInMoney.isEmpty()){ //判断金额不为空
+                    //创建InaccountDAO对象
+                    DBInAcount inaccountDAO=new  DBInAcount(AddInaccount.this);
+                    tb_inaccount tbinaccount=new tb_inaccount(inaccountDAO.getMaxId()+1,Double.parseDouble(strInMoney),
+                            txtInTime.getText().toString(),spInType.getSelectedItem().toString(),
+                            txtInHandler.getText().toString(),txtInMark.getText().toString());
+                    int result=inaccountDAO.add(tbinaccount);
+                    if(result>0)
+                    {
+                        //弹出信息提示
+                        Toast.makeText(AddInaccount.this,"【新增收入】数据添加成功！",Toast.LENGTH_SHORT).show();
+                    }
+                }else
+                {
+                    Toast.makeText(AddInaccount.this,"请输入收入金额！",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        btnInCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtInMoney.setText("");//设置"金额"文本框为空
+                txtInMoney.setHint("0.00");//设置"金额"文本框设置提示
+                txtInTime.setText("");//设置"时间"文本框为空
+                txtInTime.setHint("2011-01-01");//设置"时间"文本框设置提示
+                txtInHandler.setText("");//设置"付款方式"文本框为空
+                txtInMark.setText("");//设置"备注"文本框为空
+                spInType.setSelection(0);//设置"类别下拉列表默认选择第一项
+            }
+        });
+        final Calendar c=Calendar.getInstance();//获取系统当前日期
+        mYear=c.get(Calendar.YEAR);//获取年份
+        mYear=c.get(Calendar.MONTH);//获取月份
+        mYear=c.get(Calendar.DAY_OF_MONTH);//获取天数
+        updateDisplay();//显示当前系统时间
     }
+        private void updateDisplay()
+    {
+        //显示设置的时间
+        txtInTime.setText(new StringBuffer().append(mYear).append("-").append(mMonth +1).append("-").append(mDay));
+    }
+    protected Dialog onCreateDialog(int id)
+    {
+        switch (id)
+        {
+            case DATE_DIALOG_ID:
+                return new DatePickerDialog(this,mDateSetListener,mYear,mMonth,mDay);
+        }
+        return null;
+    }
+    private  DatePickerDialog.OnDateSetListener mDateSetListener=new DatePickerDialog.OnDateSetListener()
+    {
+       public void onDateSet(DatePicker view,int year,int monthOfYear,int dayOfMonth)
+       {
+           mYear=year;//为年份赋值
+           mMonth=monthOfYear;//为月份赋值
+           mDay=dayOfMonth;//为天赋值
+           updateDisplay();//显示设置的日期
+       }
+    };
+
 }
