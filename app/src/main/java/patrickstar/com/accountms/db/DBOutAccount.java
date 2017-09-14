@@ -21,18 +21,18 @@ public class DBOutAccount {
     /**
      * 与greendao数据操作相关的几个类
      */
-    private DaoMaster.DevOpenHelper helper;
-    private DaoMaster master;
-    private DaoSession session;
-    private tb_outaccountDao outAccountDao;
-    private Context context;
-    private tb_outaccount outaccount;
+    public DaoMaster.DevOpenHelper helper;
+    public DaoMaster master;
+    public DaoSession session;
+    public tb_outaccountDao outAccountDao;
+    public Context context;
+    public tb_outaccount outaccount;
 
     public DBOutAccount(Context context1){
         context=context1;
     }
 
-    private void initDb(){
+    public void initDb(){
         helper = new DaoMaster.DevOpenHelper(context, "UserDB.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();

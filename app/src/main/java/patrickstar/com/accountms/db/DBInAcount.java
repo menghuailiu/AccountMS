@@ -22,18 +22,18 @@ public class DBInAcount {
     /**
      * 与greendao数据操作相关的几个类
      */
-    private DaoMaster.DevOpenHelper helper;
-    private DaoMaster master;
-    private DaoSession session;
-    private tb_inaccountDao inaccountDao;
-    private Context context;
-    private tb_inaccount inaccount;
+    public DaoMaster.DevOpenHelper helper;
+    public DaoMaster master;
+    public DaoSession session;
+    public tb_inaccountDao inaccountDao;
+    public Context context;
+    public tb_inaccount inaccount;
 
     public DBInAcount(Context context1){
         context=context1;
     }
 
-    private void initDb(){
+    public void initDb(){
         helper = new DaoMaster.DevOpenHelper(context, "UserDB.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();

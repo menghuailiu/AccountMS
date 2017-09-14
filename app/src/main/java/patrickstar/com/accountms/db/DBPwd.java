@@ -28,7 +28,7 @@ public class DBPwd {
         context=context1;
     }
 
-    private void initDb(){
+    public void initDb(){
         helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
@@ -37,12 +37,14 @@ public class DBPwd {
 
     /**
      * 新增密码
-     * 需要传入一个 pwd对象
+     * 需要传入一个 pwd字符串
      * @return  int 编号
      */
-    public int insert(tb_pwd pwd)
+    public int insert(String pwd)
     {
-        long pwdid=pwdDao.insert(pwd);
+        tb_pwd pwd1 =new tb_pwd();
+        pwd1.setPassword(pwd);
+        long pwdid=pwdDao.insert(pwd1);
         return Integer.parseInt(String.valueOf(pwdid));
     }
 
@@ -68,7 +70,7 @@ public class DBPwd {
      * @param tbpwd  便签对象
      * @return boolean 类型的数据
      */
-    private boolean update(tb_pwd tbpwd){
+    public boolean update(tb_pwd tbpwd){
 
         if(tbpwd == null){
             return false;
@@ -77,6 +79,23 @@ public class DBPwd {
         return true;
     }
 
+    /**
+     * 获取密码数量
+     * 返回数量
+     */
+    public  int getCount()
+    {
+        return pwdDao.loadAll().size();
+    }
+
+    /**
+     * 查询密码
+     * @return 密码对象
+     */
+    public tb_pwd find(){
+        tb_pwd pwd=pwdDao.loadAll().get(0);
+        return pwd;
+    }
 
 
 }
