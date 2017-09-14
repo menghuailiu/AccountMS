@@ -23,6 +23,7 @@ public class AddInaccount extends Activity {
     private int mYear;//年
     private int mMonth;//月
     private int mDay;//日
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

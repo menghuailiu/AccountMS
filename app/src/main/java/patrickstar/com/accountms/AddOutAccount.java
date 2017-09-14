@@ -3,11 +3,17 @@ package patrickstar.com.accountms;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import java.util.Calendar;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import patrickstar.com.accountms.dao.tb_outaccountDao;
+import patrickstar.com.accountms.model.tb_outaccount;
 
 /**
  * Created by 秧心媛 on 17/9/14.
@@ -27,7 +33,7 @@ public class AddOutAccount extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addoutaccount);
-       /* txOutMoney=(EditText)findViewById(R.id.txOutMoney);//获取"金额"文本框
+        txOutMoney=(EditText)findViewById(R.id.txOutMoney);//获取"金额"文本框
         txtOutTime=(EditText)findViewById(R.id.txtOutTime);//获取"时间"文本框
         txOutAddress=(EditText)findViewById(R.id.txOutAddress);//获取"付款方式"文本框
         txOutMark=(EditText)findViewById(R.id.txOutMark);//获取"备注"文本框
@@ -70,7 +76,7 @@ public class AddOutAccount extends Activity {
                     Toast.makeText(AddOutAccount.this,"请输入支出金额！",Toast.LENGTH_SHORT).show();
                 }
             }
-        });*/
+        });
         }
     private void updateDisplay(){
         txtOutTime.setText(new

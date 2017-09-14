@@ -1,8 +1,18 @@
 package patrickstar.com.accountms;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.List;
+
+import patrickstar.com.accountms.dao.tb_outaccountDao;
+import patrickstar.com.accountms.model.tb_outaccount;
 
 
 /**
@@ -15,7 +25,7 @@ public class OutAccountInfo extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.outaccountinfo);
-       /* lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
+        lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
         ShowInfo(R.id.btninfo);
 
 
@@ -30,13 +40,13 @@ public class OutAccountInfo extends Activity {
                 intent.putExtras(FLAG,new String[]{strid,strType});//设置传递参数
                 startActivity(intent);//执行intent操作
             }
-        });*/
+        });
     }
     public static final String FLAG="id";//定义一个常量，作为请求码
     ListView lvOutinfo;
     String strType="";//创建字符串    ，记录管理类型
     private void ShowInfo(int intType){
-       /* String[] strInfo=null;
+        String[] strInfo=null;
         ArrayAdapter<String> arrayAdapter=null;//定义字符串数组存储收入信息
         strType="btninfo";
         tb_outaccountDao outaccountinfo=new  tb_outaccountDao(OutAccountInfo.this);
@@ -52,7 +62,7 @@ public class OutAccountInfo extends Activity {
         }
         //使用字符串数组初始化arrayadapter对象
         ArrayAdapter arrayAdapter1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfo);
-        listinfo.setAdapter(arrayAdapter1);*/
+        listinfo.setAdapter(arrayAdapter1);
     }
 
 }
