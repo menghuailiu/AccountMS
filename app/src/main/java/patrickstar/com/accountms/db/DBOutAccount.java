@@ -130,7 +130,7 @@ public class DBOutAccount {
     /**
      * 获取支出信息
      */
-    public List<tb_outaccount> getScollData(int start,int count){
+    public List<tb_outaccount> getScrollData(int start,int count){
         List<tb_outaccount> tboutaccount=new ArrayList<tb_outaccount>();//创建集合对象
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor=db.rawQuery("select * from tb_outaccount limit ?,?",

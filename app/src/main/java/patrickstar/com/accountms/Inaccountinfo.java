@@ -46,7 +46,7 @@ public class Inaccountinfo extends Activity {
         strType="btnininfo";//为strType变量赋值
         DBInAcount inaccountinfo=new DBInAcount(Inaccountinfo.this);//创建DBInAcount对象
         //获取所有收入信息，并存储到List泛型集合中
-        List<tb_inaccount>listinfos=inaccountinfo.getScrollData(0,(int)inaccountinfo.getConut());
+        List<tb_inaccount>listinfos=inaccountinfo.getScrollData(0,(int)inaccountinfo.getCount());
         strInfos=new String[listinfos.size()];//设置字符串数组的长度
         int m=0;//定义一个开始标识
         for(tb_inaccount tb_inaccount:listinfos)

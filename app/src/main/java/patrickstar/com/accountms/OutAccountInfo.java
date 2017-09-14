@@ -27,7 +27,7 @@ public class OutAccountInfo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.outaccountinfo);
         lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
-        ShowInfo(R.id.btninfo);
+        ShowInfo(R.id.btnoutinfo);
 
 
         //点击查看详细信息界面
@@ -38,7 +38,7 @@ public class OutAccountInfo extends Activity {
                 String strinf=String.valueOf(((TextView)view).getText());//记录支出信息
                 String strid=strinf.substring(0,strinf.indexOf('|'));//从收入信息中截取编号
                 Intent intent=new Intent(OutAccountInfo.this,DetailOutMess.class);//创建intent对象
-                intent.putExtras(FLAG, new String[]{strid, strType});//设置传递参数
+                intent.putExtra(FLAG, new String[]{strid, strType});//设置传递参数
                 startActivity(intent);//执行intent操作
             }
         });
@@ -49,7 +49,7 @@ public class OutAccountInfo extends Activity {
     private void ShowInfo(int intType){
         String[] strInfo=null;
         ArrayAdapter<String> arrayAdapter=null;//定义字符串数组存储收入信息
-        strType="btninfo";
+        strType="btnoutinfo";
         DBOutAccount outaccountinfo=new  DBOutAccount(OutAccountInfo.this);
         //获取所有信息存储到泛型集合list中
         List<tb_outaccount> listinfo=outaccountinfo.getScrollData(0,(int)outaccountinfo.getCount());
@@ -62,8 +62,8 @@ public class OutAccountInfo extends Activity {
 
         }
         //使用字符串数组初始化arrayadapter对象
-        ArrayAdapter arrayAdapter1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfo);
-        listinfo.setAdapter(arrayAdapter1);
+        arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfo);
+        lvOutinfo.setAdapter(arrayAdapter);
     }
 
 }

@@ -131,7 +131,7 @@ public class DBInAcount {
     /**
      * 获取支出信息
      */
-    public List<tb_inaccount> getScollData(int start, int count){
+    public List<tb_inaccount> getScrollData(int start, int count){
         List<tb_inaccount> tbinaccount= new ArrayList<>();//创建集合对象
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor=db.rawQuery("select * from tb_inaccount limit ?,?",
