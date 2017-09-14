@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">AccountMS</string>
+    <string name="app_name">家庭理财通</string>
+    <string name="out_manage">支出管理</string>
+    <string name="addout_manage">添加支出记录</string>
+    <string name="out_detail">支出详细</string>
     <string-array name="type">
         <item>工资</item>
         <item>奖金</item>

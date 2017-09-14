@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import patrickstar.com.accountms.dao.tb_outaccountDao;
+import patrickstar.com.accountms.db.DBOutAccount;
 import patrickstar.com.accountms.model.tb_outaccount;
 
 /**
@@ -29,9 +30,11 @@ public class AddOutAccount extends Activity {
     private int mYear;//年
     private int mMonth;//月
     private int mDay;//日
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.addoutaccount);
         txOutMoney=(EditText)findViewById(R.id.txOutMoney);//获取"金额"文本框
         txtOutTime=(EditText)findViewById(R.id.txtOutTime);//获取"时间"文本框
@@ -63,7 +66,7 @@ public class AddOutAccount extends Activity {
                String txtOtMoney=txOutMoney.getText().toString();//获取金额文本框
                 if(!txtOtMoney.isEmpty()){//判断金额不为空
                     //
-                    tb_outaccountDao outaccountDao=new tb_outaccountDao(AddOutAccount.this);
+                    DBOutAccount outaccountDao=new DBOutAccount(AddOutAccount.this);
                     tb_outaccount tboutaccount=new tb_outaccount(outaccountDao.getMaxId()+1,Double.parseDouble(txtOtMoney)
                     ,txtOutTime.getText().toString(),spOutType.getSelectedItem().toString(),
                             txOutAddress.getText().toString(),

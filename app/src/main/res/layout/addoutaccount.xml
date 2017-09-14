@@ -91,7 +91,6 @@
                 android:entries="@array/intype"
                 >
 
-
             </Spinner>
             <TextView
                 android:layout_width="90dp"
