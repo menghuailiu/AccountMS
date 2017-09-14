@@ -17,6 +17,7 @@ import patrickstar.com.accountms.R;
  * Created by ios23 on 17/9/13.
  *
  * 注解：用来为ViewHolder类中的TextView和ImageView组件设置功能图标和说明性文字
+ * xiaolu
  */
 
 public class pictureAdapter extends BaseAdapter {

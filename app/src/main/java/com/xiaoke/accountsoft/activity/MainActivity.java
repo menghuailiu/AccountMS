@@ -10,7 +10,7 @@ public class MainActivity extends Activity {
 
     GridView gvInfo;
 
-    //定义字符串数组，存储系统功能的文本
+    //定义字符串数组，存储系统功能的文本s
     String[] titles = new String[]{"新增支出","新增收入","我的支出","我的收入","数据管理","系统设置","收支便签","退出"};
 
     //定义int数组，存储功能对应图标

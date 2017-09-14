@@ -3,7 +3,7 @@ package com.xiaoke.accountsoft.activity;
 /**
  * Created by ios23 on 17/9/13.\
  *
- * 注解：用来定义功能图标及说明文字的实体
+ * 注解：用来定义功能图标及说明文字的实体xialu
  */
 
  class Picture {
