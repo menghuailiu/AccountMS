@@ -18,18 +18,18 @@ public class DBFlag {
     /**
      * 与greendao数据操作相关的几个类
      */
-    private DaoMaster.DevOpenHelper helper;
-    private DaoMaster master;
-    private DaoSession session;
-    private tb_flagDao flagDao;
-    private Context context;
-    private tb_flag flag;
+    public DaoMaster.DevOpenHelper helper;
+    public DaoMaster master;
+    public DaoSession session;
+    public tb_flagDao flagDao;
+    public Context context;
+    public tb_flag flag;
 
     public DBFlag(Context context1){
         context=context1;
     }
 
-    private void initDb(){
+    public void initDb(){
         helper = new DaoMaster.DevOpenHelper(context, "UserDB.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
@@ -87,7 +87,7 @@ public class DBFlag {
      * @param tbflag  便签对象
      * @return boolean 类型的数据
      */
-    private boolean update(tb_flag tbflag){
+    public boolean update(tb_flag tbflag){
 
         if(tbflag == null){
            return false;
@@ -100,13 +100,9 @@ public class DBFlag {
      * 查询所有便签信息
      * @return tb_flag的list的集合
      */
-    private List<tb_flag> query(){
+    public List<tb_flag> query(){
         List<tb_flag> flagList = flagDao.loadAll();
        return flagList;
-    }
-
-    public void getxx(){
-
     }
 
 
@@ -114,17 +110,17 @@ public class DBFlag {
      * 相等查询,where参数中可以添加多个相等的条件
      *
      */
-/*    private void queryEq(){
+/*    public void queryEq(){
         tb_flag user = flagDao.queryBuilder()
                 .where(flagDao.Properties.Flag.eq("admin")).unique();
     }*/
 
 
-/*    private void queryLike(){
+/*    public void queryLike(){
         List<UserInfo> userList = userInfoDao.queryBuilder().where(UserInfoDao.Properties.RealName.like("%lihy%")).list();
     }*/
 
-/*    private void queryBetween(){
+/*    public void queryBetween(){
         //List<UserInfo> userList = userInfoDao.queryBuilder().where(UserInfoDao.Properties.Age.between(0, 10)).list();
         List<UserInfo> userList = userInfoDao.queryBuilder().where(UserInfoDao.Properties.Age.gt(10)).list();
         //gt:大于 lt:小于 ge:大于等于 le:小于等于

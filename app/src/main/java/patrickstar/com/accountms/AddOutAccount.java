@@ -1,14 +1,24 @@
 package patrickstar.com.accountms;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import java.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import patrickstar.com.accountms.dao.tb_outaccountDao;
+import patrickstar.com.accountms.db.DBOutAccount;
+import patrickstar.com.accountms.model.tb_outaccount;
 
 /**
- * Created by ios18 on 17/9/14.
+ * Created by 秧心媛 on 17/9/14.
+ * 添加支出记录
  */
 
 public class AddOutAccount extends Activity {
@@ -20,9 +30,11 @@ public class AddOutAccount extends Activity {
     private int mYear;//年
     private int mMonth;//月
     private int mDay;//日
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.addoutaccount);
         txOutMoney=(EditText)findViewById(R.id.txOutMoney);//获取"金额"文本框
         txtOutTime=(EditText)findViewById(R.id.txtOutTime);//获取"时间"文本框
@@ -32,12 +44,71 @@ public class AddOutAccount extends Activity {
         btnOutSave=(Button)findViewById(R.id.btnOutSave);//获取"保存"按钮
         btnOutCancel=(Button)findViewById(R.id.btnOutCancel);//获取"取消"按钮
 
-        txtOutTime.setOnClickListener(new View.OnClickListener() {//为"时间"文本框设置单击监听事件
+        //点击获取时间
+        txtOutTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialog(DATE_DIALOG_ID);//显示日期选择对话框
+                showDialog(DATE_DIALOG_ID);
             }
         });
-        //final Calendar c=Calendar.getInstance();
+
+            final Calendar c=Calendar.getInstance();
+            mYear=c.get(Calendar.YEAR);
+            mMonth=c.get(Calendar.MONTH);
+            mDay=c.get(Calendar.DAY_OF_MONTH);
+            updateDisplay();
+
+
+        //点击保存按钮触发
+        btnOutSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               String txtOtMoney=txOutMoney.getText().toString();//获取金额文本框
+                if(!txtOtMoney.isEmpty()){//判断金额不为空
+                    //
+                    DBOutAccount outaccountDao=new DBOutAccount(AddOutAccount.this);
+                    tb_outaccount tboutaccount=new tb_outaccount(outaccountDao.getMaxId()+1,Double.parseDouble(txtOtMoney)
+                    ,txtOutTime.getText().toString(),spOutType.getSelectedItem().toString(),
+                            txOutAddress.getText().toString(),
+                            txOutMark.getText().toString());
+                    outaccountDao.add(tboutaccount);
+                    //弹出提示框
+                    Toast.makeText(AddOutAccount.this,"【新增支出】数据添加成功！",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(AddOutAccount.this,"请输入支出金额！",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        }
+    private void updateDisplay(){
+        txtOutTime.setText(new
+                StringBuffer().append(mYear).append("-").append(mMonth+1).append(mDay));
+
+
     }
+    private DatePickerDialog.OnDateSetListener mDateSetListener=new DatePickerDialog.OnDateSetListener(){
+
+        @Override
+        public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
+        }
+        public void onDateSet(){
+            mYear=mYear;
+            mMonth=mMonth;
+            mDay=mDay;
+            updateDisplay();
+        }
+    };
+    @Override
+    public Dialog onCreateDialog(int id){
+        switch (id){
+            case DATE_DIALOG_ID:
+                return new DatePickerDialog(this,mDateSetListener,mYear,mMonth,mDay);
+        }
+        return null;
+    }
+
+
+
 }

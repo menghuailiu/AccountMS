@@ -1,5 +1,12 @@
 package patrickstar.com.accountms.db;
 
+import android.content.Context;
+
+import java.util.List;
+
+import patrickstar.com.accountms.dao.tb_pwdDao;
+import patrickstar.com.accountms.model.tb_pwd;
+
 /**
  * Created by ios16 on 17/9/13.
  * 密码表的业务类
@@ -7,5 +14,88 @@ package patrickstar.com.accountms.db;
  */
 
 public class DBPwd {
+    /**
+     * 与greendao数据操作相关的几个类
+     */
+    private DaoMaster.DevOpenHelper helper;
+    private DaoMaster master;
+    private DaoSession session;
+    private tb_pwdDao pwdDao;
+    private Context context;
+    private tb_pwd pwd;
+
+    public DBPwd(Context context1){
+        context=context1;
+    }
+
+    public void initDb(){
+        helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
+        master = new DaoMaster(helper.getWritableDatabase());
+        session = master.newSession();
+        pwdDao = session.getTb_pwdDao();
+    }
+
+    /**
+     * 新增密码
+     * 需要传入一个 pwd字符串
+     * @return  int 编号
+     */
+    public int insert(String pwd)
+    {
+        tb_pwd pwd1 =new tb_pwd();
+        pwd1.setPassword(pwd);
+        long pwdid=pwdDao.insert(pwd1);
+        return Integer.parseInt(String.valueOf(pwdid));
+    }
+
+
+    /**
+     * 删除所有数据
+     * @return boolean 类型的数据
+     */
+    public boolean deleteAll()
+    {
+        boolean bo=true;
+        try {
+            pwdDao.deleteAll();
+        }catch (Exception ex)
+        {
+            bo=false;
+        }
+        return false;
+    }
+
+    /**
+     * 修改密码
+     * @param tbpwd  便签对象
+     * @return boolean 类型的数据
+     */
+    public boolean update(tb_pwd tbpwd){
+
+        if(tbpwd == null){
+            return false;
+        }
+        pwdDao.update(tbpwd);
+        return true;
+    }
+
+    /**
+     * 获取密码数量
+     * 返回数量
+     */
+    public  int getCount()
+    {
+        return pwdDao.loadAll().size();
+    }
+
+    /**
+     * 查询密码
+     * @return 密码对象
+     */
+    public tb_pwd find(){
+        tb_pwd pwd=pwdDao.loadAll().get(0);
+        return pwd;
+    }
+
 
 }
