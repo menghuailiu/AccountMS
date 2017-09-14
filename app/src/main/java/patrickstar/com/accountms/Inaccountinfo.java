@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import patrickstar.com.accountms.dao.tb_inaccountDao;
+import patrickstar.com.accountms.db.DBInAcount;
 import patrickstar.com.accountms.model.tb_inaccount;
 
 /**
@@ -43,7 +44,7 @@ public class Inaccountinfo extends Activity {
         String[] strInfos=null;//定义字符串数组，用来存储收入信息
         ArrayAdapter <String> arrayAdapter=null;//创建arrayAdapter对象
         strType="btnininfo";//为strType变量赋值
-        tb_inaccountDao inaccountinfo=new tb_inaccountDao(Inaccountinfo.this);//创建tb_inaccountDao对象
+        DBInAcount inaccountinfo=new DBInAcount(Inaccountinfo.this);//创建tb_inaccountDao对象
         //获取所有收入信息，并存储到List泛型集合中
         List<tb_inaccount>listinfos=inaccountinfo.getScrollData(0,(int)inaccountinfo.getConut());
         strInfos=new String[listinfos.size()];//设置字符串数组的长度

@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import patrickstar.com.accountms.dao.tb_inaccountDao;
+import patrickstar.com.accountms.db.DBInAcount;
 import patrickstar.com.accountms.model.tb_inaccount;
 
 /**
@@ -54,7 +55,7 @@ public class AddInaccount extends Activity {
                 String strInMoney=txtInMoney.getText().toString();//获取"金额"文本框的值
                 if(!strInMoney.isEmpty()){ //判断金额不为空
                     //创建InaccountDAO对象
-                    tb_inaccountDao inaccountDAO=new  tb_inaccountDao(AddInaccount.this);
+                    DBInAcount inaccountDAO=new  DBInAcount(AddInaccount.this);
                     tb_inaccount tbinaccount=new tb_inaccount(inaccountDAO.getMaxId()+1,Double.parseDouble(strInMoney),
                             txtInTime.getText().toString(),spInType.getSelectedItem().toString(),
                             txtInHandler.getText().toString(),txtInMark.getText().toString());
