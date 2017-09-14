@@ -1,19 +1,8 @@
 package patrickstar.com.accountms;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import java.util.List;
-
-import patrickstar.com.accountms.dao.tb_inaccountDao;
-import patrickstar.com.accountms.db.DBInAcount;
-import patrickstar.com.accountms.model.tb_inaccount;
 
 /**
  * Created by ios17 on 17/9/14.
@@ -26,7 +15,7 @@ public class Inaccountinfo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        lvinfo=(ListView)findViewById(R.id.lvinaccountinfo);//获取布局文件中的ListView组件
+     /*   lvinfo=(ListView)findViewById(R.id.lvinaccountinfo);//获取布局文件中的ListView组件
         ShowInfo(R.id.btnininfo);//调用自定义方法显示收入信息
         lvinfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -38,10 +27,10 @@ public class Inaccountinfo extends Activity {
                 startActivity(intent);//执行Intent操作
 
             }
-        });
+        });*/
     }
     private void ShowInfo(int inType){ //用来根据管理类显示相应的信息
-        String[] strInfos=null;//定义字符串数组，用来存储收入信息
+      /*  String[] strInfos=null;//定义字符串数组，用来存储收入信息
         ArrayAdapter <String> arrayAdapter=null;//创建arrayAdapter对象
         strType="btnininfo";//为strType变量赋值
         DBInAcount inaccountinfo=new DBInAcount(Inaccountinfo.this);//创建tb_inaccountDao对象
@@ -58,7 +47,7 @@ public class Inaccountinfo extends Activity {
         }
         //使用字符串数组初始化ArrayAdapter对象
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfos);
-        lvinfo.setAdapter(arrayAdapter);//为ListView列表设置数据源
+        lvinfo.setAdapter(arrayAdapter);//为ListView列表设置数据源*/
 
     }
 }

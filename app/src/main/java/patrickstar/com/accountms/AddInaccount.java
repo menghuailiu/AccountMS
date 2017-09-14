@@ -3,19 +3,11 @@ package patrickstar.com.accountms;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import java.util.Calendar;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
-
-import patrickstar.com.accountms.dao.tb_inaccountDao;
-import patrickstar.com.accountms.db.DBInAcount;
-import patrickstar.com.accountms.model.tb_inaccount;
 
 /**
  * Created by ios17 on 17/9/13.
@@ -35,7 +27,7 @@ public class AddInaccount extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addinaccount);
-        txtInMoney=(EditText)findViewById(R.id.txtInMoney);//获取"金额"文本框
+      /*  txtInMoney=(EditText)findViewById(R.id.txtInMoney);//获取"金额"文本框
         txtInTime=(EditText)findViewById(R.id. txtInTime);//获取"时间"文本框
         txtInHandler=(EditText)findViewById(R.id.txtInHandler);//获取"付款方式"文本框
         txtInMark=(EditText)findViewById(R.id.txtInMark);//获取"备注"文本框
@@ -88,7 +80,7 @@ public class AddInaccount extends Activity {
         mYear=c.get(Calendar.YEAR);//获取年份
         mYear=c.get(Calendar.MONTH);//获取月份
         mYear=c.get(Calendar.DAY_OF_MONTH);//获取天数
-        updateDisplay();//显示当前系统时间
+        updateDisplay();//显示当前系统时间*/
     }
         private void updateDisplay()
     {

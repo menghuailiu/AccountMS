@@ -4,10 +4,10 @@ import android.content.Context;
 
 import java.util.List;
 
-import de.greenrobot.dao.query.QueryBuilder;
-import patrickstar.com.accountms.dao.tb_outaccountDao;
+import greendao.gen.DaoMaster;
+import greendao.gen.DaoSession;
 import patrickstar.com.accountms.model.tb_outaccount;
-
+import greendao.gen.*;
 /**
  * Created by ios16 on 17/9/14.
  * 支出信息业务类
@@ -18,23 +18,24 @@ public class DBOutAccount {
     /**
      * 与greendao数据操作相关的几个类
      */
-    public DaoMaster.DevOpenHelper helper;
-    public DaoMaster master;
-    public DaoSession session;
+
     public tb_outaccountDao outAccountDao;
     public Context context;
     public tb_outaccount outaccount;
 
+    private DaoMaster.DevOpenHelper helper;
+    private DaoMaster master;
+    private DaoSession session;
+    public void initDb(){
+        helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
+        master = new DaoMaster(helper.getWritableDatabase());
+        session = master.newSession();
+    }
     public DBOutAccount(Context context1){
         context=context1;
     }
 
-    public void initDb(){
-        helper = new DaoMaster.DevOpenHelper(context, "UserDB.db", null);
-        master = new DaoMaster(helper.getWritableDatabase());
-        session = master.newSession();
-        outAccountDao = session.getTb_outaccountDao();
-    }
+
     /**
      * 新增支出信息
      * 需要传入一个 inaccount对象
@@ -64,10 +65,10 @@ public class DBOutAccount {
      * 根据ID查询数据
      * @return tb_outAccountDao 支出对象
      */
-    public tb_outaccount find(int id)
+    public tb_outaccount find(Long id)
     {
-        QueryBuilder bu=outAccountDao.queryBuilder();
-        bu.where(tb_outaccountDao.Properties._id.eq(id));
+        org.greenrobot.greendao.query.QueryBuilder<tb_outaccount> bu=outAccountDao.queryBuilder();
+        bu.where(tb_outaccountDao.Properties.Id.eq(id));
         tb_outaccount tb=null;
         try {
             tb=(tb_outaccount) bu.list().get(0);
@@ -95,7 +96,7 @@ public class DBOutAccount {
      * 根据id删除支出信息
      * @return boolean类型的数据
      */
-    public  boolean deleteById(int id)
+    public  boolean deleteById(Long id)
     {
         boolean bo=true;
         try {

@@ -2,11 +2,8 @@ package patrickstar.com.accountms.db;
 
 import android.content.Context;
 
-import java.util.List;
-
-import patrickstar.com.accountms.dao.tb_pwdDao;
 import patrickstar.com.accountms.model.tb_pwd;
-
+import greendao.gen.*;
 /**
  * Created by ios16 on 17/9/13.
  * 密码表的业务类
@@ -17,23 +14,27 @@ public class DBPwd {
     /**
      * 与greendao数据操作相关的几个类
      */
-    private DaoMaster.DevOpenHelper helper;
-    private DaoMaster master;
-    private DaoSession session;
+
     private tb_pwdDao pwdDao;
     private Context context;
     private tb_pwd pwd;
 
-    public DBPwd(Context context1){
-        context=context1;
-    }
-
+    private DaoMaster.DevOpenHelper helper;
+    private DaoMaster master;
+    private DaoSession session;
     public void initDb(){
         helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
-        pwdDao = session.getTb_pwdDao();
+        pwdDao=session.getTb_pwdDao();
     }
+    public DBPwd(Context context1){
+        context=context1;
+        initDb();
+    }
+
+
+
 
     /**
      * 新增密码
@@ -96,6 +97,5 @@ public class DBPwd {
         tb_pwd pwd=pwdDao.loadAll().get(0);
         return pwd;
     }
-
 
 }

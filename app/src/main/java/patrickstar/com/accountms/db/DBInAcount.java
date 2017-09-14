@@ -1,14 +1,11 @@
 package patrickstar.com.accountms.db;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.List;
 
-import de.greenrobot.dao.query.QueryBuilder;
-import patrickstar.com.accountms.dao.tb_inaccountDao;
 import patrickstar.com.accountms.model.tb_inaccount;
-
+import greendao.gen.*;
 /**
  * Created by ios16 on 17/9/14.
  * 收入信息业务类
@@ -18,23 +15,22 @@ public class DBInAcount {
     /**
      * 与greendao数据操作相关的几个类
      */
-    public DaoMaster.DevOpenHelper helper;
-    public DaoMaster master;
-    public DaoSession session;
+
     public tb_inaccountDao inaccountDao;
     public Context context;
     public tb_inaccount inaccount;
-
+    private DaoMaster.DevOpenHelper helper;
+    private DaoMaster master;
+    private DaoSession session;
+    public void initDb(){
+        helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
+        master = new DaoMaster(helper.getWritableDatabase());
+        session = master.newSession();
+    }
     public DBInAcount(Context context1){
         context=context1;
     }
 
-    public void initDb(){
-        helper = new DaoMaster.DevOpenHelper(context, "UserDB.db", null);
-        master = new DaoMaster(helper.getWritableDatabase());
-        session = master.newSession();
-        inaccountDao = session.getTb_inaccountDao();
-    }
     /**
      * 新增收入信息
      * 需要传入一个 inaccount对象
@@ -66,8 +62,8 @@ public class DBInAcount {
      */
     public tb_inaccount find(int id)
     {
-        QueryBuilder bu=inaccountDao.queryBuilder();
-        bu.where(tb_inaccountDao.Properties._id.eq(id));
+        org.greenrobot.greendao.query.QueryBuilder<tb_inaccount> bu=inaccountDao.queryBuilder();
+        bu.where(tb_inaccountDao.Properties.Id.eq(id));
         tb_inaccount tb=null;
         try {
              tb=(tb_inaccount) bu.list().get(0);
@@ -95,7 +91,7 @@ public class DBInAcount {
      * 根据id删除收入信息
      * @return boolean类型的数据
      */
-    public  boolean deleteById(int id)
+    public  boolean deleteById(Long id)
     {
         boolean bo=true;
         try {
