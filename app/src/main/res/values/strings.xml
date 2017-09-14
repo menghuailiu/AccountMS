@@ -6,4 +6,9 @@
         <item >津贴</item>
         <item >补贴</item>
     </string-array>
+    <string-array name="intype">
+        <item >生活</item>
+        <item>旅行</item>
+        <item>sx</item>
+    </string-array>
 </resources>
