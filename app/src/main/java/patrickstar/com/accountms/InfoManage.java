@@ -33,8 +33,8 @@ public class InfoManage extends Activity {
     DBOutAccount outaccountDAO=new DBOutAccount(InfoManage.this);//创建DBOutAccount对象
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        tvtitle=(TextView)findViewById(R.id.inouttitle);//获取标题标签对象
+  super.onCreate(savedInstanceState);
+        /*      tvtitle=(TextView)findViewById(R.id.inouttitle);//获取标题标签对象
         textView=(TextView)findViewById(R.id.tvInOut) ;//获取"地点/付款方式"标签对象
         txtMoney=(EditText)findViewById(R.id.txtInOutMoney);//获取"金额"文本框
         txtTime=(EditText)findViewById(R.id. txtInOutTime);//获取"时间"文本框
@@ -117,7 +117,7 @@ public class InfoManage extends Activity {
             }
         });
 
-
+*/
     }
 
 }

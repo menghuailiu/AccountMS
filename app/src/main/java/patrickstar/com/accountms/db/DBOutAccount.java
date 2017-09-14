@@ -137,7 +137,7 @@ public class DBOutAccount {
         Cursor cursor=db.rawQuery("select * from tb_outaccount limit ?,?",
                 new String[]{String.valueOf(start),
                 String .valueOf(count)});
-        while (cursor.moveToNext()){
+/*        while (cursor.moveToNext()){
             tboutaccount.add(new tb_outaccount(cursor.getInt(cursor.getColumnIndex("_id")),
                     cursor.getDouble(cursor.getColumnIndex("money")),
                     cursor.getString(cursor.getColumnIndex("time")),
@@ -145,7 +145,7 @@ public class DBOutAccount {
                     cursor.getString(cursor.getColumnIndex("address")),
                     cursor.getString(cursor.getColumnIndex("mark"))));//将遍历到的支出信息添加到集合中
 
-        }
+        }*/
         return tboutaccount;//返回集合
     }
     /**

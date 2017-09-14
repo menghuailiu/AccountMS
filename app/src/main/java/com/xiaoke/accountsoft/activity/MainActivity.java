@@ -1,7 +1,10 @@
 package com.xiaoke.accountsoft.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import patrickstar.com.accountms.R;
@@ -28,7 +31,7 @@ public class MainActivity extends Activity {
         pictureAdapter adapter = new pictureAdapter(titles,images,this);//创建pictureAdapter对象
         gvInfo.setAdapter(adapter);//为GridView设置数据
 
-        /**
+
         gvInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
@@ -38,42 +41,42 @@ public class MainActivity extends Activity {
                 switch (arg2){
                     case 0:
                         //使用AddOutaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,AddOutAccount.class);
-                        startActivity(intent);
+                      /*  intent = new Intent(MainActivity.this,AddOutAccount.class);
+                        startActivity(intent);*/
                         break;
 
 
                     case 1:
                         //使用AddInaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,AddInaccount.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.AddInaccount.class);
                         startActivity(intent);
                         break;
 
                     case 2:
                         //使用Outaccountinfo窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Outaccountinfo.class);
-                        startActivity(intent);
+                        /*intent = new Intent(MainActivity.this,patrickstar.com.accountms.Outaccountinfo.class);
+                        startActivity(intent);*/
                         break;
                     case 3:
                         //使用Inaccountinfo窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Inaccountinfo.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.Inaccountinfo.class);
                         startActivity(intent);
                         break;
 
                     case 4:
                         //使用AddOutaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Showinfo.class);
-                        startActivity(intent);
+                     /*   intent = new Intent(MainActivity.this,Showinfo.class);
+                        startActivity(intent);*/
                         break;
                     case 5:
                         //使用Sysset窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Sysset.class);
-                        startActivity(intent);
+                        /*intent = new Intent(MainActivity.this,Sysset.class);
+                        startActivity(intent);*/
                         break;
                     case 6:
                         //使用Accountflag窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Accountflag.class);
-                        startActivity(intent);
+                        /*intent = new Intent(MainActivity.this,Accountflag.class);
+                        startActivity(intent);*/
                         break;
                     case 7:
                        finish();//若点击的是关闭，则关闭当前Activity
@@ -83,7 +86,7 @@ public class MainActivity extends Activity {
                 }
 
             }
-        });*/
+        });
 
 
     }

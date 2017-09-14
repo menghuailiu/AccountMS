@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import patrickstar.com.accountms.dao.tb_outaccountDao;
+/*import patrickstar.com.accountms.dao.tb_outaccountDao;*/
 import patrickstar.com.accountms.model.tb_outaccount;
 
 /**
@@ -60,7 +60,7 @@ public class AddOutAccount extends Activity {
         btnOutSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               String txtOtMoney=txOutMoney.getText().toString();//获取金额文本框
+              /* String txtOtMoney=txOutMoney.getText().toString();//获取金额文本框
                 if(!txtOtMoney.isEmpty()){//判断金额不为空
                     //
                     tb_outaccountDao outaccountDao=new tb_outaccountDao(AddOutAccount.this);
@@ -74,7 +74,7 @@ public class AddOutAccount extends Activity {
                 }
                 else{
                     Toast.makeText(AddOutAccount.this,"请输入支出金额！",Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
         }

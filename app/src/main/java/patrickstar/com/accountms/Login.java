@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {        //为"登录"按钮设置监听事件
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Login.this,MainActivity.class);//创建Intent对象
+                Intent intent=new Intent(Login.this,com.xiaoke.accountsoft.activity.MainActivity.class);//创建Intent对象
                 DBPwd pwdDAO=new DBPwd(Login.this);                   //创建PwdDAO对象
 
                 tb_pwd pwd=pwdDAO.find();
