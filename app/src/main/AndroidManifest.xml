@@ -16,7 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OutAccountInfo">
+
+        <activity android:name="com.xiaoke.accountsoft.activity.MainActivity">
+
+        </activity>
+        <activity android:name=".AddInaccount">
+        </activity>
+
+        <activity android:name=".Inaccountinfo">
+        </activity>
+<!--        <activity android:name=".OutAccountInfo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,11 +45,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+<<<<<<< HEAD
         </activity>
         <activity
             android:name="com.xiaoke.accountsoft.activity.Accountflag"
             android:label="@string/title_activity_accountflag"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+=======
+        </activity>-->
+>>>>>>> origin/master
     </application>
 
 </manifest>
