@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class AddInaccount extends Activity {
     Button btnInSaveButton;//创建Button对象"保存"
     Button btnInCancelButton;//创建Button对象"取消"
     Button btnReturn;////创建Button对象"返回主页"
+    ImageView image ;//设置图片
     private int mYear;//年
     private int mMonth;//月
     private int mDay;//日
@@ -45,6 +47,7 @@ public class AddInaccount extends Activity {
         btnInSaveButton=(Button)findViewById(R.id.btnInSave);//获取"保存"按钮
         btnInCancelButton=(Button)findViewById(R.id.btnInCancel);//获取"取消"按钮
         btnReturn=(Button)findViewById(R.id.btnReturn);//获取"返回主页面"按钮
+        image=(ImageView)findViewById(R.id.image) ;
 
         txtInTime.setOnClickListener(new View.OnClickListener() {//为"时间"文本框设置单击监听事件
             @Override
@@ -66,9 +69,6 @@ public class AddInaccount extends Activity {
                     tbinaccount.setTime(txtInTime.getText().toString());
                     tbinaccount.setType(spInType.getSelectedItem().toString());
                     tbinaccount.setId(Long.parseLong(String.valueOf(inaccountDAO.getMax()+1)));
-                            /*(Double.parseDouble(strInMoney),
-                            txtInTime.getText().toString(),spInType.getSelectedItem().toString(),
-                            txtInHandler.getText().toString(),txtInMark.getText().toString());*/
                     long result=inaccountDAO.add(tbinaccount);
                     if(result>0)
                     {
