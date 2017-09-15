@@ -15,6 +15,9 @@ import patrickstar.com.accountms.R;
 import patrickstar.com.accountms.db.DBFlag;
 import patrickstar.com.accountms.model.tb_flag;
 
+/**
+ * 新增便签
+ */
 public class Accountflag extends Activity {
     EditText txtFlag;
     Button btnflagSaveButton;
