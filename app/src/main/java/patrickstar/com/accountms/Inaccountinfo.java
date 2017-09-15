@@ -26,7 +26,7 @@ public class Inaccountinfo extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        lvinfo=(ListView)findViewById(R.id.lvinaccountinfo);//获取布局文件中的ListView组件
-        ShowInfo(R.id. );//调用自定义方法显示收入信息
+        ShowInfo(;//调用自定义方法显示收入信息
         lvinfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -39,7 +39,7 @@ public class Inaccountinfo extends Activity {
             }
         });
     }
-    private void ShowInfo(int inType){ //用来根据管理类显示相应的信息
+    private void ShowInfo(){ //用来根据管理类显示相应的信息
         String[] strInfos=null;//定义字符串数组，用来存储收入信息
         ArrayAdapter<String> arrayAdapter=null;//创建arrayAdapter对象
         strType="btnininfo";//为strType变量赋值
