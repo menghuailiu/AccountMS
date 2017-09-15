@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,11 +26,14 @@ public class OutAccountInfo extends Activity {
     public static final String FLAG="id";//定义一个常量，作为请求码
     ListView lvOutinfo;
     String strType="";//创建字符串    ，记录管理类型
+    Button btnback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.outaccountinfo);
+
        lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
+        btnback=(Button)findViewById(R.id.btnBack);
       //  ShowInfo(R.id.btninfo);
 
         String[] strInfo=null;
@@ -55,11 +59,18 @@ public class OutAccountInfo extends Activity {
            //方法覆写
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               /* String strinf=String.valueOf(((TextView)view).getText());//记录支出信息
+                String strinf=String.valueOf(((TextView)view).getText());//记录支出信息
                 String strid=strinf.substring(0,strinf.indexOf('|'));//从收入信息中截取编号
-                Intent intent=new Intent(OutAccountInfo.this,DetailOutMess.class);//创建intent对象
-                intent.putExtras(FLAG,new String[]{strid,strType});//设置传递参数
-                startActivity(intent);//执行intent操作*/
+                Intent intent=new Intent(OutAccountInfo.this,InfoManage.class);//创建intent对象
+                intent.putExtra("info",strid+","+"btnoutinfo");
+                startActivity(intent);//执行intent操作
+            }
+        });
+        //返回按钮
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

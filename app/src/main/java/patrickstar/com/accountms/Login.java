@@ -28,12 +28,14 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-   /*     DBOpenHelper helpe=new DBOpenHelper(Login.this); //创建数据库
-        helpe.getWritableDatabase();*/
+      //  DBOpenHelper helpe=new DBOpenHelper(Login.this); //创建数据库
+       // helpe.getWritableDatabase();
 
         String str="";
-      /*  DBOpenHelper helper=new DBOpenHelper(Login.this);
+       /* DBOpenHelper helper=new DBOpenHelper(Login.this);
         helper.getWritableDatabase();*/
+
+
         DBPwd dao=new DBPwd(Login.this);
         int count=0;
         try {
@@ -84,6 +86,17 @@ public class Login extends AppCompatActivity {
                 }
                 txtlogin.setText("");                                   //清空密码文本框
 
+            }
+        });
+
+        //退出登录
+        Button btnClose=(Button)findViewById(R.id.btnClose);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_MAIN,null);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                startActivity(intent);
             }
         });
     }

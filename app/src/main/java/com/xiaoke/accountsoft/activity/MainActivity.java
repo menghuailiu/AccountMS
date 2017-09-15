@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
     GridView gvInfo;
 
     //定义字符串数组，存储系统功能的文本
-    String[] titles = new String[]{"新增支出","我的支出","新增收入","我的收入","系统设置","数据管理","收支便签","退出"};
+    String[] titles = new String[]{"新增支出","我的支出","新增收入","我的收入","数据管理","系统设置","收支便签","退出"};
 
     //定义int数组，存储功能对应图标
     // int[] images = new int[]{R.drawable.addoutaccount,R.drawable.addinaccount,R.drawable.outaccountinfo,
@@ -53,13 +53,13 @@ public class MainActivity extends Activity {
 
                     case 1:
                         //使用AddInaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.AddInaccount.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.OutAccountInfo.class);
                         startActivity(intent);
                         break;
 
                     case 2:
                         //使用Outaccountinfo窗口初始化Intent
-                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.OutAccountInfo.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.AddInaccount.class);
                         startActivity(intent);
                         break;
                     case 3:
@@ -70,12 +70,12 @@ public class MainActivity extends Activity {
 
                     case 4:
                         //使用AddOutaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.fl_MainActivity.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.Sysset.class);
                         startActivity(intent);
                         break;
                     case 5:
                         //使用Sysset窗口初始化Intent
-                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.Sysset.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.fl_MainActivity.class);
                         startActivity(intent);
                         break;
                     case 6:

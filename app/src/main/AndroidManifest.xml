@@ -25,6 +25,8 @@
         <activity android:name=".OutAccountInfo" />
         <activity android:name=".Sysset" />
         <activity android:name="com.xiaoke.accountsoft.activity.Accountflag" />
+        <activity android:name=".fl_MainActivity"></activity>
+        <activity android:name=".FlagActivity"></activity>
         <!--
             <activity android:name=".OutAccountInfo">
             <intent-filter>
@@ -76,8 +78,8 @@
             </intent-filter>
         </activity>
         -->
-        <activity android:name=".model.FlagActivity" />
-        <activity android:name=".FlagActivity"></activity>
+        <!--<activity android:name=".FlagActivity" />
+        <activity android:name=".FlagActivity"></activity>-->
     </application>
 
 </manifest>

@@ -148,7 +148,7 @@ public class fl_MainActivity extends AppCompatActivity {
                 tbsize = new String[tb.size()];
                 int  m = 0;
                 for(tb_flag inaccount:tb){
-                    tbsize[m] = inaccount.getId()+","+inaccount.getFlag();
+                    tbsize[m] = inaccount.getId()+"|"+inaccount.getFlag();
                     m++;
                 }
                 adapter=new ArrayAdapter<String>(fl_MainActivity.this,android.R.layout.simple_expandable_list_item_1,tbsize);
@@ -164,9 +164,9 @@ public class fl_MainActivity extends AppCompatActivity {
                 String strid = strinfo.substring(0,strinfo.indexOf("|"));
                 Toast.makeText(fl_MainActivity.this, strid,Toast.LENGTH_LONG).show();
                 if(strType=="btnflaginfo"){
-                   /* Intent intent  = new Intent(fl_MainActivity.this,"");
+                    Intent intent  = new Intent(fl_MainActivity.this,FlagActivity.class);
                     intent.putExtra("info",strid);
-                    startActivity(intent);*/
+                    startActivity(intent);
                 }else{
                 Intent intent = new Intent(fl_MainActivity.this,InfoManage.class);
                 intent.putExtra("info",strid+","+strType);
