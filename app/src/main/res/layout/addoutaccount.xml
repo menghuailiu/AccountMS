@@ -29,7 +29,7 @@
         android:layout_height="2dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="#5F94CD" />
+        android:background="#5bf" />
     <View
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
@@ -40,8 +40,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_height="25dp"
         android:orientation="vertical"
         >
 
@@ -54,8 +53,9 @@
         >
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="324dp"
             android:padding="10dp"
+            android:background="#1000"
             >
             <TextView
                 android:layout_width="90dp"
@@ -159,13 +159,13 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:orientation="vertical"
-        >
+        android:weightSum="1">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="27dp"
             android:padding="10px"
 
-            >
+            android:layout_weight="0.52">
             <Button
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
                 android:textColor="#fff"
-                android:background="@drawable/shap2"
+                android:background="@drawable/shap1"
                 android:text="返回"
                 />
             <Button
@@ -183,7 +183,7 @@
                 android:layout_toLeftOf="@id/btnOutBack"
                 android:layout_marginLeft="10dp"
                 android:text="取消"
-                android:background="@drawable/shap1"
+                android:background="@drawable/shap2"
                 android:textColor="#fff"
 
                 />
