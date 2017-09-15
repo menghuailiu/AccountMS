@@ -2,6 +2,8 @@ package patrickstar.com.accountms.db;
 
 import android.content.Context;
 
+import org.greenrobot.greendao.query.QueryBuilder;
+
 import java.util.List;
 
 import greendao.gen.DaoMaster;
@@ -107,6 +109,38 @@ public class DBFlag {
     }
 
 
+    /**
+     * 根据ID查询数据
+     * @return tb_flag 便签对象
+     */
+    public tb_flag find(int id)
+    {
+        QueryBuilder bu;
+        bu = flagDao.queryBuilder().where(tb_inaccountDao.Properties.Id.eq(id));
+        tb_flag tb=null;
+        try {
+            tb=(tb_flag) bu.list().get(0);
+        }
+        catch (Exception ex)
+        {
+            return tb;
+        }
+        return tb;
+    }
+
+    /**
+     * 获取最大数据
+     * @return
+     */
+    public  int getMax(){
+    int i=0;
+    try{
+        i=flagDao.loadAll().size();
+    }catch (Exception ex){
+
+    }
+    return  i;
+}
     /**
      * 相等查询,where参数中可以添加多个相等的条件
      *

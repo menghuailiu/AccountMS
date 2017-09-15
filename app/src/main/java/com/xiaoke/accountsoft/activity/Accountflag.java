@@ -15,6 +15,9 @@ import patrickstar.com.accountms.R;
 import patrickstar.com.accountms.db.DBFlag;
 import patrickstar.com.accountms.model.tb_flag;
 
+/**
+ * 新增便签
+ */
 public class Accountflag extends Activity {
     EditText txtFlag;
     Button btnflagSaveButton;
@@ -36,10 +39,10 @@ public class Accountflag extends Activity {
 
                 String strFlag = txtFlag.getText().toString();
                 if(!strFlag.isEmpty())
-                {/**
+                {
                      DBFlag  flagDAO = new DBFlag(Accountflag.this);
                      tb_flag tbf = new tb_flag(flagDAO.getMax()+1,strFlag);
-                     flagDAO.add(tbf);*/
+                     flagDAO.insert(tbf);
                     Toast.makeText(Accountflag.this,"新便签添加成功！",Toast.LENGTH_SHORT).show();
                 }
                 else {

@@ -69,7 +69,8 @@ public class Login extends AppCompatActivity {
                 String str=txtlogin.getText().toString();
                 //判断是否有密码及是否输入了密码
                 if(txtlogin.getText().toString().equals(null)||txtlogin.getText().toString().equals("")){
-                    startActivity(intent);                              //启动主Activity
+                    //弹出信息提示
+                    Toast.makeText(Login.this,"请输入密码！",Toast.LENGTH_SHORT).show();                         //启动主Activity
                 }
                 else {
                     //判断输入的密码是否与数据库中的密码一致
