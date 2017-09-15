@@ -37,7 +37,7 @@ public class AddInaccount extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addinaccount);
-       txtInMoney=(EditText)findViewById(R.id.txtInMoney);//获取"金额"文本框
+        txtInMoney=(EditText)findViewById(R.id.txtInMoney);//获取"金额"文本框
         txtInTime=(EditText)findViewById(R.id. txtInTime);//获取"时间"文本框
         txtInHandler=(EditText)findViewById(R.id.txtInHandler);//获取"付款方式"文本框
         txtInMark=(EditText)findViewById(R.id.txtInMark);//获取"备注"文本框
@@ -97,8 +97,7 @@ public class AddInaccount extends Activity {
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(AddInaccount.this,com.xiaoke.accountsoft.activity.MainActivity.class);
+                finish();
             }
         });
         final Calendar c=Calendar.getInstance();//获取系统当前日期
