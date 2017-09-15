@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +32,7 @@ public class AddOutAccount extends Activity {
     Spinner spOutType;//创建Spinner对象
     Button btnOutSave;//创建Button对象"保存"
     Button btnOutCancel;//创建Button对象"取消"
+    Button btnOutBack;//创建返回按钮
     private int mYear;//年
     private int mMonth;//月
     private int mDay;//日
@@ -43,7 +47,7 @@ public class AddOutAccount extends Activity {
         spOutType=(Spinner)findViewById(R.id.spOutType);//获取"类别"下拉列表
         btnOutSave=(Button)findViewById(R.id.btnOutSave);//获取"保存"按钮
         btnOutCancel=(Button)findViewById(R.id.btnOutCancel);//获取"取消"按钮
-
+        btnOutBack=(Button)findViewById(R.id.btnOutBack);//获取返回按钮
         //点击获取时间
         txtOutTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +94,18 @@ public class AddOutAccount extends Activity {
         btnOutCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txOutMoney.setText("0.00");
+               // SimpleDateFormat formatter = new SimpleDateFormat ("yyyy年MM月dd日 HH:mm:ss ");
+               // Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+                //String str = formatter.format(curDate);
+                txtOutTime.setText("");
+                txOutAddress.setText("");
+                txOutMark.setText("");
+            }
+        });
+        btnOutBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -97,20 +113,17 @@ public class AddOutAccount extends Activity {
         }
     private void updateDisplay(){
         txtOutTime.setText(new
-                StringBuffer().append(mYear).append("-").append(mMonth+1).append(mDay));
+                StringBuffer().append(mYear).append("-").append(mMonth+1).append("-").append(mDay));
 
 
     }
     private DatePickerDialog.OnDateSetListener mDateSetListener=new DatePickerDialog.OnDateSetListener(){
 
         @Override
-        public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-
-        }
-        public void onDateSet(){
-            mYear=mYear;
-            mMonth=mMonth;
-            mDay=mDay;
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            mYear=year;
+            mMonth=month;
+            mDay=day;
             updateDisplay();
         }
     };
