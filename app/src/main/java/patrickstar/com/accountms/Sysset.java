@@ -33,8 +33,9 @@ public class Sysset extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                DBPwd pwdDAO=new DBPwd(Sysset.this);                  //创建PwdDAO对象
-                tb_pwd pwd=new tb_pwd();  //根据输入的密码创建Tb_pwd对象
+                DBPwd pwdDAO=new DBPwd(Sysset.this);
+                //创建PwdDAO对象
+                tb_pwd pwd  =pwdDAO.getpwd();
                 pwd.setPassword(txtpwd.getText().toString());
                 try {
                     boolean bo = pwdDAO.update(pwd);

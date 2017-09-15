@@ -44,7 +44,19 @@ public class DBPwd {
     public int insert(String pwd)
     {
         tb_pwd pwd1 =new tb_pwd();
+        int i=0;
+        try{
+            i=pwdDao.loadAll().size();
+            if(i>0){
+                pwdDao.deleteAll();
+            }
+            i=1;
+        }catch (Exception ex)
+        {
+            i=1;
+        }
         pwd1.setPassword(pwd);
+        pwd1.setId(Long.parseLong(String.valueOf(i)));
         long pwdid=pwdDao.insert(pwd1);
         return Integer.parseInt(String.valueOf(pwdid));
     }
@@ -98,4 +110,10 @@ public class DBPwd {
         return pwd;
     }
 
+    public tb_pwd getpwd()
+    {
+        tb_pwd p=new tb_pwd();
+        p=pwdDao.loadAll().get(0);
+        return p;
+    }
 }

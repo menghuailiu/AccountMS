@@ -28,12 +28,14 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        DBOpenHelper helpe=new DBOpenHelper(Login.this); //创建数据库
-        helpe.getWritableDatabase();
+      //  DBOpenHelper helpe=new DBOpenHelper(Login.this); //创建数据库
+       // helpe.getWritableDatabase();
 
         String str="";
-      /*  DBOpenHelper helper=new DBOpenHelper(Login.this);
+       /* DBOpenHelper helper=new DBOpenHelper(Login.this);
         helper.getWritableDatabase();*/
+
+
         DBPwd dao=new DBPwd(Login.this);
         int count=0;
         try {

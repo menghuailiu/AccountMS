@@ -18,7 +18,7 @@
             android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="数据管理"
+            android:text="系统管理"
             android:textSize="26px"
             android:gravity="center_vertical|left"
             android:layout_toRightOf="@+id/imageView1"/>
