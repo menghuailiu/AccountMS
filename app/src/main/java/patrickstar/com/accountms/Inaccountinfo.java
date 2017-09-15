@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,8 +26,29 @@ public class Inaccountinfo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.inaccountinfo);
        lvinfo=(ListView)findViewById(R.id.lvinaccountinfo);//获取布局文件中的ListView组件
-        ShowInfo(;//调用自定义方法显示收入信息
+
+        //String[] strInfos=null;//定义字符串数组，用来存储收入信息
+        //ArrayAdapter<String> arrayAdapter=null;//创建arrayAdapter对象
+        strType="btnininfo";//为strType变量赋值
+        DBInAcount inaccountinfo=new DBInAcount(Inaccountinfo.this);//创建DBInAcount对象
+        //获取所有收入信息，并存储到List泛型集合中
+        List<tb_inaccount> listinfos=inaccountinfo.getScrollData(0,(int)inaccountinfo.getCount());
+        String[] strInfos=new String[listinfos.size()];//设置字符串数组的长度
+        int m=0;//定义一个开始标识
+        for(tb_inaccount tb_inaccount:listinfos)
+        {
+            //将收入相关信息组合成一个字符串，存储到字符串数组的相应位置
+            strInfos[m]=tb_inaccount.getId()+"|"+tb_inaccount.getType()+""+String.valueOf(tb_inaccount.getMoney()) +"" +
+                    "  元 "+tb_inaccount.getTime();
+            m++;//标识加1
+        }
+        //使用字符串数组初始化ArrayAdapter对象
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(Inaccountinfo.this,android.R.layout.simple_list_item_1,strInfos);
+        lvinfo.setAdapter(arrayAdapter);//为ListView列表设置数据源
+
+        /*ShowInfo();//调用自定义方法显示收入信息*/
         lvinfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {

@@ -41,8 +41,8 @@ public class MainActivity extends Activity {
                 switch (arg2){
                     case 0:
                         //使用AddOutaccount窗口初始化Intent
-                      /*  intent = new Intent(MainActivity.this,AddOutAccount.class);
-                        startActivity(intent);*/
+                       intent = new Intent(MainActivity.this,patrickstar.com.accountms.AddOutAccount.class);
+                        startActivity(intent);
                         break;
 
 

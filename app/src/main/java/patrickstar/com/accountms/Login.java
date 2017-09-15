@@ -47,7 +47,9 @@ public class Login extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {
 
                 }
+
             });
+            dialog.show();
         }
         final EditText txtlogin=(EditText)findViewById(R.id.txtLogin);  //获取密码文本框
         Button btnlogin=(Button) findViewById(R.id.btnLogin);            //获取"登录"按钮

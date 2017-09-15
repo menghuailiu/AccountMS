@@ -25,6 +25,13 @@
 
         <activity android:name=".Inaccountinfo">
         </activity>
+
+        <activity android:name=".InfoManage">
+        </activity>
+
+        <activity android:name=".AddOutAccount">
+        </activity>
+
 <!--        <activity android:name=".OutAccountInfo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
