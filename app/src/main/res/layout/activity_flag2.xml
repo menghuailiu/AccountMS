@@ -80,20 +80,20 @@
             android:padding="10dp">
 
             <Button
-                android:id="@+id/btnflagCancel"
+                android:id="@+id/btnflagSave"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
-                android:text="编辑" />
+                android:text="保存" />
 
             <Button
-                android:id="@+id/btnflagSave"
+                android:id="@+id/btnflagCancel"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/btnflagCancel"
                 android:maxLength="200"
-                android:text="取消">
+                android:text="删除">
 
             </Button>
 

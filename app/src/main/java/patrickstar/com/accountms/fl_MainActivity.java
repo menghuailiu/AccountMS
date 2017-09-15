@@ -30,7 +30,6 @@ import patrickstar.com.accountms.model.tb_outaccount;
 
 
 public class fl_MainActivity extends AppCompatActivity {
-
     private Button edit;
     private ListView  listView;
     public List<tb_outaccount> oData;
@@ -44,10 +43,8 @@ public class fl_MainActivity extends AppCompatActivity {
     public String[] tbsize;
     ArrayAdapter<String> adapter =null;
     public static final  String FLAG= "id";
+    public TextView title;
     String strType="";
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +65,7 @@ public class fl_MainActivity extends AppCompatActivity {
         zhichu = (Button) findViewById(R.id.zhichu);
         shouru = (Button) findViewById(R.id.shouru);
         bianqian = (Button) findViewById(R.id.bianqian);
+        title = (TextView) findViewById(R.id.title);
 
 
         //action 编辑按钮
@@ -109,6 +107,8 @@ public class fl_MainActivity extends AppCompatActivity {
         zhichu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                title.setText("我的支出");
+
                 strType = "btnoutinfo";
                 List<tb_outaccount> list = getOutData();
                 tbsize = new String [list.size()];
@@ -126,6 +126,7 @@ public class fl_MainActivity extends AppCompatActivity {
         shouru.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                title.setText("我的收入");
                 strType = "btnininfo";
                 List<tb_inaccount> tb= getInData();
                 tbsize = new String[tb.size()];
@@ -143,6 +144,7 @@ public class fl_MainActivity extends AppCompatActivity {
         bianqian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                title.setText("我的便签");
                 strType = "btnflaginfo";
                 List<tb_flag> tb= getFData();
                 tbsize = new String[tb.size()];
@@ -163,7 +165,7 @@ public class fl_MainActivity extends AppCompatActivity {
                 String strinfo = String.valueOf(((TextView)view).getText());
                 String strid = strinfo.substring(0,strinfo.indexOf("|"));
                 Toast.makeText(fl_MainActivity.this, strid,Toast.LENGTH_LONG).show();
-                if(strType=="btnflaginfo"){
+                if(strType == "btnflaginfo"){
                     Intent intent  = new Intent(fl_MainActivity.this,FlagActivity.class);
                     intent.putExtra("info",strid);
                     startActivity(intent);
@@ -205,9 +207,9 @@ public class fl_MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
-            /*Intent intent = new Intent(this,TestActivity.class);
-            startActivity(intent);*/
+            //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,com.xiaoke.accountsoft.activity.MainActivity.class);
+            startActivity(intent);
             return super.onOptionsItemSelected(item);
         }
 

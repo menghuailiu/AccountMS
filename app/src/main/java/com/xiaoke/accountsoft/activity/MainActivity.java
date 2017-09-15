@@ -70,12 +70,13 @@ public class MainActivity extends Activity {
 
                     case 4:
                         //使用AddOutaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.Sysset.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.fl_MainActivity.class);
                         startActivity(intent);
+
                         break;
                     case 5:
                         //使用Sysset窗口初始化Intent
-                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.fl_MainActivity.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.Sysset.class);
                         startActivity(intent);
                         break;
                     case 6:

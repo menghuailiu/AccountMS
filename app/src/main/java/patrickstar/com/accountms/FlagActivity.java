@@ -39,7 +39,7 @@ public class FlagActivity extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                flag.setFlag("");
+                flag.setFlag(text.getText().toString());
                 if(dbFlag.update(flag)){
                     Toast.makeText(FlagActivity.this,"【数据】修改成功！",Toast.LENGTH_SHORT).show();
                 }

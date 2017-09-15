@@ -159,6 +159,13 @@
                 android:layout_toLeftOf="@+id/btnInOutDelete"
                 android:text="修改"
                 />
+            <Button
+                android:id="@+id/btnInOutBack"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/btnInOutEdit"
+                android:text="返回"
+                />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

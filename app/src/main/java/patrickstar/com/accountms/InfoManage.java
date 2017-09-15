@@ -24,7 +24,7 @@ public class InfoManage extends Activity {
     TextView tvtitle,textView;//创建两个TextView对象
     EditText txtMoney,txtTime,txtHA,txtMark;//创建四个EditText对象
     Spinner spType;//创建Spinner对象
-    Button btnEdit,btnDel;//创建两个Button对象
+    Button btnEdit,btnDel,btninoutBack;//创建两个Button对象
     String [] strInfos;//定义字符串数组
     String strid,strType;//定义两个字符串变量，分别用来记录信息编号和管理类型
     private int mYear;//年
@@ -33,10 +33,12 @@ public class InfoManage extends Activity {
     public String info;//接收的参数
     public tb_outaccount tboutaccount;
     public tb_inaccount inaccount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.infomanage);
+        btninoutBack=(Button)findViewById(R.id.btnInOutBack);//获取返回按钮
         final DBOutAccount outaccountDAO=new DBOutAccount(InfoManage.this);//创建DBOutAccount对象
         final DBInAcount inAcount = new DBInAcount(InfoManage.this);
        // Toast.makeText(InfoManage.this, "进入",Toast.LENGTH_LONG).show();
@@ -59,7 +61,6 @@ public class InfoManage extends Activity {
         strInfos = info.split(",");
         strid=strInfos[0];
         strType=strInfos[1];//记录类型
-        Toast.makeText(InfoManage.this,"ID"+strInfos[1],Toast.LENGTH_SHORT).show();
        if(strType.equals("btnoutinfo"))
         {
             tvtitle.setText("支出管理");//设置标题为"支出管理"
@@ -84,6 +85,7 @@ public class InfoManage extends Activity {
             txtHA.setText(inaccount.getHandler());//显示付款方
             txtMark.setText(inaccount.getMark());//显示备注
         }
+
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,6 +146,12 @@ public class InfoManage extends Activity {
                     }
                 }
 
+            }
+        });
+        btninoutBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
