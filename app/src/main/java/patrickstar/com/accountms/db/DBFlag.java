@@ -47,7 +47,6 @@ public class DBFlag {
      */
     public int insert(tb_flag flag)
     {
-
         long flagid=flagDao.insert(flag);
         return Integer.parseInt(String.valueOf(flagid));
     }
