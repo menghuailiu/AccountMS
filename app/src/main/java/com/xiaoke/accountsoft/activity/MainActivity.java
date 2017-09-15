@@ -7,12 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import patrickstar.com.accountms.AddInaccount;
-import patrickstar.com.accountms.AddOutAccount;
-import patrickstar.com.accountms.Inaccountinfo;
-import patrickstar.com.accountms.OutAccountInfo;
 import patrickstar.com.accountms.R;
-import patrickstar.com.accountms.Sysset;
 
 public class MainActivity extends Activity {
 
@@ -46,43 +41,43 @@ public class MainActivity extends Activity {
                 switch (arg2){
                     case 0:
                         //使用AddOutaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,AddOutAccount.class);
+                       intent = new Intent(MainActivity.this,patrickstar.com.accountms.AddOutAccount.class);
                         startActivity(intent);
                         break;
 
 
                     case 1:
                         //使用AddInaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,AddInaccount.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.AddInaccount.class);
                         startActivity(intent);
                         break;
 
                     case 2:
                         //使用Outaccountinfo窗口初始化Intent
-                        intent = new Intent(MainActivity.this,OutAccountInfo.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.OutAccountInfo.class);
                         startActivity(intent);
                         break;
                     case 3:
                         //使用Inaccountinfo窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Inaccountinfo.class);
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.Inaccountinfo.class);
                         startActivity(intent);
                         break;
-                      /*
+
                     case 4:
                         //使用AddOutaccount窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Showinfo.class);
-                        startActivity(intent);
+                     /*   intent = new Intent(MainActivity.this,Showinfo.class);
+                        startActivity(intent);*/
                         break;
                     case 5:
                         //使用Sysset窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Sysset.class);
-                        startActivity(intent);
+                        /*intent = new Intent(MainActivity.this,Sysset.class);
+                        startActivity(intent);*/
                         break;
-                  case 6:
+                    case 6:
                         //使用Accountflag窗口初始化Intent
-                        intent = new Intent(MainActivity.this,Accountflag.class);
-                        startActivity(intent);
-                        break;      */
+                        /*intent = new Intent(MainActivity.this,Accountflag.class);
+                        startActivity(intent);*/
+                        break;
                     case 7:
                        finish();//若点击的是关闭，则关闭当前Activity
 

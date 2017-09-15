@@ -12,8 +12,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import patrickstar.com.accountms.dao.tb_outaccountDao;
 import patrickstar.com.accountms.db.DBOutAccount;
+import patrickstar.com.accountms.model.tb_outaccount;
+
+/*import patrickstar.com.accountms.dao.tb_outaccountDao;*/
 import patrickstar.com.accountms.model.tb_outaccount;
 
 /**
@@ -30,11 +32,9 @@ public class AddOutAccount extends Activity {
     private int mYear;//年
     private int mMonth;//月
     private int mDay;//日
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.addoutaccount);
         txOutMoney=(EditText)findViewById(R.id.txOutMoney);//获取"金额"文本框
         txtOutTime=(EditText)findViewById(R.id.txtOutTime);//获取"时间"文本框
@@ -63,14 +63,21 @@ public class AddOutAccount extends Activity {
         btnOutSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               String txtOtMoney=txOutMoney.getText().toString();//获取金额文本框
+              String txtOtMoney=txOutMoney.getText().toString();//获取金额文本框
                 if(!txtOtMoney.isEmpty()){//判断金额不为空
                     //
                     DBOutAccount outaccountDao=new DBOutAccount(AddOutAccount.this);
-                    tb_outaccount tboutaccount=new tb_outaccount(outaccountDao.getMaxId()+1,Double.parseDouble(txtOtMoney)
+                    tb_outaccount tboutaccount=new tb_outaccount();
+                    tboutaccount.setId(Long.parseLong(String.valueOf(outaccountDao.getMaxId()+1)));
+                    tboutaccount.setType(spOutType.getSelectedItem().toString());
+                    tboutaccount.setMark(txOutMark.getText().toString());
+                    tboutaccount.setAddress(txOutAddress.getText().toString());
+                    tboutaccount.setTime(txtOutTime.getText().toString());
+                    tboutaccount.setMoney(Double.parseDouble(txtOtMoney));
+                            /*(outaccountDao.getMaxId()+1,Double.parseDouble(txtOtMoney)
                     ,txtOutTime.getText().toString(),spOutType.getSelectedItem().toString(),
                             txOutAddress.getText().toString(),
-                            txOutMark.getText().toString());
+                            txOutMark.getText().toString());*/
                     outaccountDao.add(tboutaccount);
                     //弹出提示框
                     Toast.makeText(AddOutAccount.this,"【新增支出】数据添加成功！",Toast.LENGTH_SHORT).show();
@@ -80,6 +87,13 @@ public class AddOutAccount extends Activity {
                 }
             }
         });
+        btnOutCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         }
     private void updateDisplay(){
         txtOutTime.setText(new

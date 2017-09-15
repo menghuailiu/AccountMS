@@ -1,17 +1,16 @@
 package patrickstar.com.accountms.db;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.greenrobot.greendao.query.QueryBuilder;
 
-import de.greenrobot.dao.query.QueryBuilder;
-import patrickstar.com.accountms.dao.tb_inaccountDao;
+import java.util.List;
+import greendao.gen.*;
+import greendao.gen.DaoMaster;
+import greendao.gen.DaoSession;
+
 import patrickstar.com.accountms.model.tb_inaccount;
-import patrickstar.com.accountms.model.tb_outaccount;
 
 /**
  * Created by ios16 on 17/9/14.
@@ -22,32 +21,34 @@ public class DBInAcount {
     /**
      * 与greendao数据操作相关的几个类
      */
-    public DaoMaster.DevOpenHelper helper;
-    public DaoMaster master;
-    public DaoSession session;
+
     public tb_inaccountDao inaccountDao;
     public Context context;
     public tb_inaccount inaccount;
-
-    public DBInAcount(Context context1){
-        context=context1;
-    }
-
+    private DaoMaster.DevOpenHelper helper;
+    private DaoMaster master;
+    private DaoSession session;
     public void initDb(){
-        helper = new DaoMaster.DevOpenHelper(context, "UserDB.db", null);
+        helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
-        inaccountDao = session.getTb_inaccountDao();
+        inaccountDao=session.getTb_inaccountDao();
     }
+    public DBInAcount(Context context1){
+        context=context1;initDb();
+        initDb();
+    }
+
+
     /**
      * 新增收入信息
      * 需要传入一个 inaccount对象
      * @return  int 编号
      */
-    public int add(tb_inaccount account)
+    public long add(tb_inaccount account)
     {
         long inaccountid=inaccountDao.insert(account);
-        return Integer.parseInt(String.valueOf(inaccountid));
+        return inaccountid;
     }
 
     /**
@@ -71,7 +72,7 @@ public class DBInAcount {
     public tb_inaccount find(int id)
     {
         QueryBuilder bu=inaccountDao.queryBuilder();
-        bu.where(tb_inaccountDao.Properties._id.eq(id));
+        bu.where(tb_inaccountDao.Properties.Id.eq(id));
         tb_inaccount tb=null;
         try {
              tb=(tb_inaccount) bu.list().get(0);
@@ -99,7 +100,7 @@ public class DBInAcount {
      * 根据id删除收入信息
      * @return boolean类型的数据
      */
-    public  boolean deleteById(int id)
+    public  boolean deleteById(long id)
     {
         boolean bo=true;
         try {
@@ -127,6 +128,39 @@ public class DBInAcount {
             bo=false;
         }
         return false;
+    }
+
+    /**
+     * 获取最大数据
+     * @return
+     */
+    public long getMax(){
+    long g=0;
+    try {
+        g=inaccountDao.loadAll().size();
+    }catch (Exception e){return 0;}
+    return g;
+    }
+
+    /**
+     * 获取所有数据
+     * @param start 开始位置
+     * @param count 结束位置
+     * @return 收入表的集合
+     */
+    public List<tb_inaccount> getScrollData(int start,int count)
+    {
+       return inaccountDao.queryBuilder().limit(count).list();
+
+    }
+
+    /**
+     * 获取总记录数
+     * @return int
+     */
+    public int getCount()
+    {
+        return inaccountDao.loadAll().size();
     }
 
 
