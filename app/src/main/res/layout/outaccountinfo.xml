@@ -36,7 +36,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="30dp"
-            android:background="#5bf" />
+            android:background="#5F94CD" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/lineOut2"
@@ -47,10 +47,24 @@
         >
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="370dp"
             android:id="@+id/lvOutacountInfo"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             >
         </ListView>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="返回"
+                android:textColor="#fff"
+                android:textSize="25px"
+                android:layout_alignParentBottom="true"
+                android:background="#5F94CD"
+                android:id="@+id/btnBack"/>
+        </RelativeLayout>
+
     </LinearLayout>
 </LinearLayout>

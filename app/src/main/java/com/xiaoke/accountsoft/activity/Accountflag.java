@@ -28,13 +28,13 @@ public class Accountflag extends Activity {
         btnflagCanceButton = (Button)findViewById(R.id.btnflagCancel);
         btnflagSaveButton = (Button)findViewById(R.id.btnflagSave);
 
-
+/*
         //点击保存时，保存输入信息
         btnflagSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 
-                String strFlag = txtFlag.getText().toString();
+              String strFlag = txtFlag.getText().toString();
                 if(!strFlag.isEmpty())
                 {
                      DBFlag  flagDAO = new DBFlag(Accountflag.this);
@@ -48,7 +48,7 @@ public class Accountflag extends Activity {
 
             }
         });
-
+*/
         //点击取消时，清空输入信息
         btnflagCanceButton.setOnClickListener(new View.OnClickListener() {
             @Override
