@@ -42,6 +42,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     //覆写基类的onUpdate方法，以便数据库版本更新
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {//这是如果已经创建了数据库，那就把要修改数据库的代码写在这里
-
+        String str3="create table tb_pwd(id integer primary key ,password varhcar(20)) ";
+        sqLiteDatabase.execSQL(str3);
     }
 }
