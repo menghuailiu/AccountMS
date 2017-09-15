@@ -20,7 +20,7 @@ import patrickstar.com.accountms.db.DBInAcount;
 
 /**
  * Created by ios17 on 17/9/13.
- * ff mhl
+ * ff mhldfddf
  */
 
 public class AddInaccount extends Activity {
@@ -28,7 +28,7 @@ public class AddInaccount extends Activity {
     EditText txtInMoney,txtInTime,txtInHandler,txtInMark;//创建四个EditText对象
     Spinner spInType;//创建Spinner对象
     Button btnInSaveButton;//创建Button对象"保存"
-    Button btnInCancelButton;//创建Button对象"取消"
+    Button btnInCancelButton;//创建Button对象"取消"12
     Button btnReturn;////创建Button对象"返回主页"
     ImageView image ;//设置图片
     private int mYear;//年
