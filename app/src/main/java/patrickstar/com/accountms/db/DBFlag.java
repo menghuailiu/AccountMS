@@ -1,13 +1,13 @@
 package patrickstar.com.accountms.db;
 
 import android.content.Context;
-import android.widget.ListView;
 
 import java.util.List;
 
-import patrickstar.com.accountms.MainActivity;
+import greendao.gen.DaoMaster;
+import greendao.gen.DaoSession;
 import  patrickstar.com.accountms.model.*;
-import patrickstar.com.accountms.dao.tb_flagDao;
+import greendao.gen.*;
 /**
  * Created by ios16 on 17/9/13.
  * 用于对便签表的增删改操作
@@ -18,22 +18,23 @@ public class DBFlag {
     /**
      * 与greendao数据操作相关的几个类
      */
-    public DaoMaster.DevOpenHelper helper;
-    public DaoMaster master;
-    public DaoSession session;
+
     public tb_flagDao flagDao;
     public Context context;
     public tb_flag flag;
 
-    public DBFlag(Context context1){
-        context=context1;
-    }
 
+
+    private DaoMaster.DevOpenHelper helper;
+    private DaoMaster master;
+    private DaoSession session;
     public void initDb(){
-        helper = new DaoMaster.DevOpenHelper(context, "UserDB.db", null);
+        helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
-        flagDao = session.getTb_flagDao();
+    }
+    public DBFlag(Context context1){
+        context=context1;
     }
     /**
      * 新增便签信息
@@ -53,7 +54,7 @@ public class DBFlag {
      * 根据id删除便签
      * @return boolean类型的数据
      */
-    public  boolean deleteById(int id)
+    public  boolean deleteById(Long id)
     {
         boolean bo=true;
         try {

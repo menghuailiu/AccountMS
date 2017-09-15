@@ -1,14 +1,17 @@
 package patrickstar.com.accountms.db;
 
 
+import org.greenrobot.greendao.annotation.Entity;
+
 import java.io.IOException;
 
+import javax.xml.validation.Schema;
 import javax.xml.validation.Validator;
 import javax.xml.validation.ValidatorHandler;
 
-import de.greenrobot.daogenerator.DaoGenerator;
-import de.greenrobot.daogenerator.Entity;
-import de.greenrobot.daogenerator.Schema;
+
+
+
 
 /**
  * Created by ios16 on 17/9/13.
@@ -18,9 +21,9 @@ import de.greenrobot.daogenerator.Schema;
 public class CreateGreendaoClass {
     public static void main(String arg[])
     {
-
+/*
         Schema mySchema = new Schema(1, "patrickstar.com.accountms");//Schema一般为数据库对象的集合
-        Entity UserInfo = mySchema.addEntity("tb_flag");//创建一个标签表
+        org.greenrobot.greendao.generator.Entity UserInfo = mySchema.addEntity("tb_flag");//创建一个标签表
         UserInfo.addIntProperty("_id").primaryKey();
         UserInfo.addStringProperty("flag");
 
@@ -51,7 +54,7 @@ public class CreateGreendaoClass {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        }*/
        /* Schema mySchema = new Schema(1, "com.patrickstar.onetomanygreendao");
         //学生实体
         Entity Student = mySchema.addEntity("Student");

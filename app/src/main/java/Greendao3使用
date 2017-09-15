@@ -1,0 +1,62 @@
+1、在app下面的gradle添加
+    compile 'org.greenrobot:greendao:3.0.1'
+    compile 'org.greenrobot:greendao-generator:3.0.0'
+
+    apply plugin: 'org.greenrobot.greendao'
+
+
+    greendao {
+        schemaVersion 2//数据库版本号
+        daoPackage 'greendao.gen'//设置DaoMaster、DaoSession、Dao包名
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+        //targetGenDirTest：设置生成单元测试目录
+        //generateTests：设置自动生成单元测试用例
+    }
+
+
+    添加了以后就会自动下载  不添加
+    buildscript {
+        存储库{
+            mavenCentral（）
+        }
+        依赖{
+            classpath'org.greenrobot：greendao-gradle-plugin：3.0.0'
+        }
+ 2、创建实体类
+
+ @Entity
+ public class tb_flag {
+     @Id
+     private Long id;
+     private String flag;
+     private String password;
+     public String getPassword() {
+         return this.password;
+     }
+     public void setPassword(String password) {
+         this.password = password;
+     }
+     public String getFlag() {
+         return this.flag;
+     }
+     public void setFlag(String flag) {
+         this.flag = flag;
+     }
+     public Long getId() {
+         return this.id;
+     }
+     public void setId(Long id) {
+         this.id = id;
+     }
+     @Generated(hash = 717539150)
+     public tb_flag(Long id, String flag, String password) {
+         this.id = id;
+         this.flag = flag;
+         this.password = password;
+     }
+     @Generated(hash = 1694295426)
+     public tb_flag() {
+     }
+ }
+
+ 3、接下来让我们点击作为中构建菜单栏中的Make Project，make完成之后会发现我们的用户类中突然多了好多代码，这就是greenDAO自动为你生成的了，
