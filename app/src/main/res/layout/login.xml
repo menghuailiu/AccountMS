@@ -48,6 +48,7 @@
         android:layout_alignBaseline="@+id/btnClose"
         android:layout_alignBottom="@+id/btnClose"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
 
 </RelativeLayout>
