@@ -28,6 +28,7 @@ public class AddInaccount extends Activity {
     Spinner spInType;//创建Spinner对象
     Button btnInSaveButton;//创建Button对象"保存"
     Button btnInCancelButton;//创建Button对象"取消"
+    Button btnReturn;////创建Button对象"返回主页"
     private int mYear;//年
     private int mMonth;//月
     private int mDay;//日
@@ -43,6 +44,7 @@ public class AddInaccount extends Activity {
         spInType=(Spinner)findViewById(R.id.spInType);//获取"类别"下拉列表
         btnInSaveButton=(Button)findViewById(R.id.btnInSave);//获取"保存"按钮
         btnInCancelButton=(Button)findViewById(R.id.btnInCancel);//获取"取消"按钮
+        btnReturn=(Button)findViewById(R.id.btnReturn);//获取"返回主页面"按钮
 
         txtInTime.setOnClickListener(new View.OnClickListener() {//为"时间"文本框设置单击监听事件
             @Override
@@ -90,7 +92,13 @@ public class AddInaccount extends Activity {
                 txtInHandler.setText("");//设置"付款方式"文本框为空
                 txtInMark.setText("");//设置"备注"文本框为空
                 spInType.setSelection(0);//设置"类别下拉列表默认选择第一项
-                finish();
+            }
+        });
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                intent.setClass(AddInaccount.this,com.xiaoke.accountsoft.activity.MainActivity.class);
             }
         });
         final Calendar c=Calendar.getInstance();//获取系统当前日期

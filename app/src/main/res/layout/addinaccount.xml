@@ -159,6 +159,13 @@
                 android:layout_toLeftOf="@+id/btnInCancel"
                 android:text="保存"
                 />
+            <Button
+                android:id="@+id/btnReturn"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/btnInSave"
+                android:text="返回主页"
+                />
             </RelativeLayout>
         </LinearLayout>
 </LinearLayout>
