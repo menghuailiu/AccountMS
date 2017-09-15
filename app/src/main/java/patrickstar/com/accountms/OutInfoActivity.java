@@ -19,7 +19,7 @@ public class OutInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);/*8
         setContentView(R.layout.activity_out_info);
         final String id = getIntent().getStringExtra("id");
 
@@ -31,6 +31,7 @@ public class OutInfoActivity extends AppCompatActivity {
 
 
        /* tb_flag flag1 = new DBFlag(this).*/
+        /*
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +55,6 @@ public class OutInfoActivity extends AppCompatActivity {
         });
 
         Toast.makeText(OutInfoActivity.this,id,Toast.LENGTH_LONG).show();
-
+        */
     }
 }
