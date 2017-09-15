@@ -9,41 +9,30 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/imageView1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/addout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/shujuguanli"
             />
         <TextView
             android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="重置密码"
+            android:text="数据管理"
             android:textSize="26px"
             android:gravity="center_vertical|left"
             android:layout_toRightOf="@+id/imageView1"/>
     </RelativeLayout>
     <View
         android:layout_width="fill_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:layout_height="2dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="#5F94CD"
+        android:background="#e7e4e5"
         />
 
-    <TextView
-        android:id="@+id/tvPwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center"
-        android:text="请输入密码"
-        android:textSize="25dp"
-        android:textColor="#8c6931"
-        android:layout_above="@+id/txtPwd"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="34dp" />
+
     <EditText
         android:id="@+id/txtPwd"
         android:layout_width="match_parent"
@@ -64,7 +53,8 @@
         android:layout_marginBottom="195dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#5294CD"/>
     <Button
         android:id="@+id/btnSet"
         android:layout_width="90dp"
@@ -75,6 +65,7 @@
         android:layout_alignBaseline="@+id/btnsetCancel"
         android:layout_alignBottom="@+id/btnsetCancel"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#5294CD"/>
 
 </RelativeLayout>

@@ -80,8 +80,8 @@ public class MainActivity extends Activity {
                         break;
                     case 6:
                         //使用Accountflag窗口初始化Intent
-                        /*intent = new Intent(MainActivity.this,Accountflag.class);
-                        startActivity(intent);*/
+                        intent = new Intent(MainActivity.this,Accountflag.class);
+                        startActivity(intent);
                         break;
                     case 7:
                        finish();//若点击的是关闭，则关闭当前Activity

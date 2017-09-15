@@ -7,6 +7,23 @@
     android:layout_marginTop="5dp"
     android:weightSum="1"
     >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/chaxunshouru"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="我的收入"
+            android:textSize="26px"
+            android:gravity="center_vertical|left"
+            android:layout_toRightOf="@+id/imageView1"/>
+    </RelativeLayout>
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_height="wrap_content"
@@ -18,12 +35,6 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             >
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:gravity="left"
-                android:background="@drawable/chaxunshouru"
-                />
             <TextView
                 android:text="我的收入"
                 android:layout_width="match_parent"
