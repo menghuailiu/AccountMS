@@ -39,7 +39,7 @@ public class OutInfoActivity extends AppCompatActivity {
             }
         });
 
-        delete.setOnClickListener(new View.OnClickListener() {
+        /*delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (dbFlag.deleteById(Integer.parseInt(id))) {
@@ -51,7 +51,7 @@ public class OutInfoActivity extends AppCompatActivity {
                     //删除失败
                 }
             }
-        });
+        });*/
 
         Toast.makeText(OutInfoActivity.this,id,Toast.LENGTH_LONG).show();
 
