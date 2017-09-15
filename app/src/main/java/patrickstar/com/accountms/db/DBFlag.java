@@ -1,13 +1,13 @@
 package patrickstar.com.accountms.db;
 
 import android.content.Context;
-import android.widget.ListView;
 
 import java.util.List;
 
-import patrickstar.com.accountms.MainActivity;
+import greendao.gen.DaoMaster;
+import greendao.gen.DaoSession;
 import  patrickstar.com.accountms.model.*;
-import patrickstar.com.accountms.dao.tb_flagDao;
+import greendao.gen.*;
 /**
  * Created by ios16 on 17/9/13.
  * 用于对便签表的增删改操作
@@ -18,22 +18,23 @@ public class DBFlag {
     /**
      * 与greendao数据操作相关的几个类
      */
+
+    public tb_flagDao flagDao;
+    public Context context;
+    public tb_flag flag;
+
+
+
     private DaoMaster.DevOpenHelper helper;
     private DaoMaster master;
     private DaoSession session;
-    private tb_flagDao flagDao;
-    private Context context;
-    private tb_flag flag;
-
-    public DBFlag(Context context1){
-        context=context1;
-    }
-
-    private void initDb(){
-        helper = new DaoMaster.DevOpenHelper(context, "UserDB.db", null);
+    public void initDb(){
+        helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
-        flagDao = session.getTb_flagDao();
+    }
+    public DBFlag(Context context1){
+        context=context1;
     }
     /**
      * 新增便签信息
@@ -53,7 +54,7 @@ public class DBFlag {
      * 根据id删除便签
      * @return boolean类型的数据
      */
-    public  boolean deleteById(int id)
+    public  boolean deleteById(Long id)
     {
         boolean bo=true;
         try {
@@ -87,7 +88,7 @@ public class DBFlag {
      * @param tbflag  便签对象
      * @return boolean 类型的数据
      */
-    private boolean update(tb_flag tbflag){
+    public boolean update(tb_flag tbflag){
 
         if(tbflag == null){
            return false;
@@ -100,13 +101,9 @@ public class DBFlag {
      * 查询所有便签信息
      * @return tb_flag的list的集合
      */
-    private List<tb_flag> query(){
+    public List<tb_flag> query(){
         List<tb_flag> flagList = flagDao.loadAll();
        return flagList;
-    }
-
-    public void getxx(){
-
     }
 
 
@@ -114,17 +111,17 @@ public class DBFlag {
      * 相等查询,where参数中可以添加多个相等的条件
      *
      */
-/*    private void queryEq(){
+/*    public void queryEq(){
         tb_flag user = flagDao.queryBuilder()
                 .where(flagDao.Properties.Flag.eq("admin")).unique();
     }*/
 
 
-/*    private void queryLike(){
+/*    public void queryLike(){
         List<UserInfo> userList = userInfoDao.queryBuilder().where(UserInfoDao.Properties.RealName.like("%lihy%")).list();
     }*/
 
-/*    private void queryBetween(){
+/*    public void queryBetween(){
         //List<UserInfo> userList = userInfoDao.queryBuilder().where(UserInfoDao.Properties.Age.between(0, 10)).list();
         List<UserInfo> userList = userInfoDao.queryBuilder().where(UserInfoDao.Properties.Age.gt(10)).list();
         //gt:大于 lt:小于 ge:大于等于 le:小于等于

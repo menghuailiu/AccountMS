@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center_horizontal"
-            android:text=" 新增支出"
+            android:text="支出详细"
             android:textSize="40sp"
             android:textColor="#6688ff"
             android:textStyle="bold"
@@ -91,6 +91,7 @@
                 android:entries="@array/intype"
                 >
 
+
             </Spinner>
             <TextView
                 android:layout_width="90dp"
@@ -117,17 +118,17 @@
                 android:id="@+id/tvOutMark"
                 android:textSize="20sp"
                 android:text="备注"
-               android:layout_alignTop="@+id/txOutMark"
+                android:layout_alignTop="@+id/txOutMark"
                 android:layout_toLeftOf="@+id/txOutAddress"
                 />
-                <EditText
-                    android:id="@+id/txOutMark"
-                    android:layout_width="210dp"
-                    android:layout_height="150dp"
-                    android:layout_toRightOf="@id/tvOutMark"
-                    android:layout_below="@+id/txOutAddress"
-                    android:gravity="top"
-                    android:singleLine="false"/>
+            <EditText
+                android:id="@+id/txOutMark"
+                android:layout_width="210dp"
+                android:layout_height="150dp"
+                android:layout_toRightOf="@id/tvOutMark"
+                android:layout_below="@+id/txOutAddress"
+                android:gravity="top"
+                android:singleLine="false"/>
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout
@@ -148,14 +149,14 @@
                 android:id="@+id/btnOutCancel"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
-                android:text="取消"
+                android:text="修改"
                 />
             <Button
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnOutSave"
                 android:layout_toLeftOf="@id/btnOutCancel"
-                android:text="保存"
+                android:text="删除"
                 />
         </RelativeLayout>
 
