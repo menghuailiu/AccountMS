@@ -16,14 +16,13 @@ public class OutInfoActivity extends AppCompatActivity {
     private Button delete;
     private EditText flag;
     DBFlag dbFlag = new DBFlag(this);
-    private String info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_out_info);
-        info  = getIntent().getStringExtra("info");
-        Toast.makeText(OutInfoActivity.this,info,Toast.LENGTH_LONG).show();
+        final String id = getIntent().getStringExtra("id");
+
         save = (Button) findViewById(R.id.btnsave);
         delete = (Button) findViewById(R.id.btndelete);
         flag = (EditText) findViewById(R.id.editflag);
@@ -43,18 +42,18 @@ public class OutInfoActivity extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            /*    if (dbFlag.deleteById(Integer.parseInt(id))) {
+                if (dbFlag.deleteById(Integer.parseInt(id))) {
                     //删除成功
 
 
                 }
                 else{
                     //删除失败
-                }*/
+                }
             }
         });
 
-        //Toast.makeText(OutInfoActivity.this,id,Toast.LENGTH_LONG).show();
+        Toast.makeText(OutInfoActivity.this,id,Toast.LENGTH_LONG).show();
 
     }
 }

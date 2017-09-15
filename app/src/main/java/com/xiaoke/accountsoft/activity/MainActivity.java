@@ -14,12 +14,16 @@ public class MainActivity extends Activity {
 
     GridView gvInfo;
 
-    //定义字符串数组，存储系统功能的文本s
-    String[] titles = new String[]{"新增支出","新增收入","我的支出","我的收入","数据管理","系统设置","收支便签","退出"};
+    //定义字符串数组，存储系统功能的文本
+    String[] titles = new String[]{"新增支出","我的支出","新增收入","我的收入","系统设置","数据管理","收支便签","退出"};
 
     //定义int数组，存储功能对应图标
-    int[] images = new int[]{R.drawable.addoutaccount,R.drawable.addinaccount,R.drawable.outaccountinfo,
-    R.drawable.inaccountifo,R.drawable.showinfo,R.drawable.sysset,R.drawable.accountflag,R.drawable.exit};
+    // int[] images = new int[]{R.drawable.addoutaccount,R.drawable.addinaccount,R.drawable.outaccountinfo,
+    //R.drawable.inaccountifo,R.drawable.showinfo,R.drawable.sysset,R.drawable.accountflag,R.drawable.exit};
+
+    int[] images = new int[]{R.drawable.xinzengzhichu,R.drawable.wdzhichu,R.drawable.xinzengshouru,
+            R.drawable.wdshouru,R.drawable.xitongshezhi,R.drawable.shujuguanli,R.drawable.shouzhibianqian,
+            R.drawable.tubiao1};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
