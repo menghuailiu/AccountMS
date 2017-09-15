@@ -3,6 +3,7 @@ package patrickstar.com.accountms;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -89,6 +90,7 @@ public class AddInaccount extends Activity {
                 txtInHandler.setText("");//设置"付款方式"文本框为空
                 txtInMark.setText("");//设置"备注"文本框为空
                 spInType.setSelection(0);//设置"类别下拉列表默认选择第一项
+                finish();
             }
         });
         final Calendar c=Calendar.getInstance();//获取系统当前日期
