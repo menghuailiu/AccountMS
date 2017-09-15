@@ -30,11 +30,17 @@ public class InfoManage extends Activity {
     private int mYear;//年
     private int mMonth;//月
     private int mDay;//日
-    DBOutAccount outaccountDAO=new DBOutAccount(InfoManage.this);//创建DBOutAccount对象
+    public String info;//接收的参数
+    public tb_outaccount tboutaccount;
+    public tb_inaccount inaccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-  super.onCreate(savedInstanceState);
-        /*      tvtitle=(TextView)findViewById(R.id.inouttitle);//获取标题标签对象
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.infomanage);
+        final DBOutAccount outaccountDAO=new DBOutAccount(InfoManage.this);//创建DBOutAccount对象
+        final DBInAcount inAcount = new DBInAcount(InfoManage.this);
+       // Toast.makeText(InfoManage.this, "进入",Toast.LENGTH_LONG).show();
+        tvtitle=(TextView)findViewById(R.id.inouttitle);//获取标题标签对象
         textView=(TextView)findViewById(R.id.tvInOut) ;//获取"地点/付款方式"标签对象
         txtMoney=(EditText)findViewById(R.id.txtInOutMoney);//获取"金额"文本框
         txtTime=(EditText)findViewById(R.id. txtInOutTime);//获取"时间"文本框
@@ -44,16 +50,22 @@ public class InfoManage extends Activity {
         btnEdit=(Button)findViewById(R.id.btnInOutEdit);//获取"修改"按钮
         btnDel=(Button)findViewById(R.id.btnInOutDelete);//获取"删除"按钮
         Intent intent=getIntent();//创建Intent对象
-        Bundle budle=intent.getExtras();//获取传入的数据，并使用Bundle对象
-        strInfos=budle.getStringArray(Showinfo.FLAG);//获取Bundle中记录的信息
-        strid=strInfos[0];//记录id
+         info= intent.getStringExtra("info");
+
+
+        //Toast.makeText(InfoManage.this, info,Toast.LENGTH_LONG).show();
+        //Bundle budle=intent.getExtras();//获取传入的数据，并使用Bundle对象
+        //strInfos=budle.getStringArray(Showinfo.FLAG);//获取Bundle中记录的信息
+        strInfos = info.split(",");
+        strid=strInfos[0];
         strType=strInfos[1];//记录类型
-        if(strType.equals("btnoutinfo"))
+        Toast.makeText(InfoManage.this,"ID"+strInfos[1],Toast.LENGTH_SHORT).show();
+       if(strType.equals("btnoutinfo"))
         {
             tvtitle.setText("支出管理");//设置标题为"支出管理"
             textView.setText("地点：");//设置"地点/付款方"标签文本为"地点："
             //根据编号查找支出信息，并存储到tb_outaccount对象中
-            tb_outaccount tboutaccount=new DBOutAccount.find(Integer.parseInt(strid));
+             tboutaccount=new DBOutAccount(this).find(Long.parseLong(strid));
             txtMoney.setText(String.valueOf(tboutaccount.getMoney()) );//显示金额
             txtTime.setText(tboutaccount.getTime());//显示时间
             spType.setPrompt(tboutaccount.getType());//显示类别
@@ -65,7 +77,7 @@ public class InfoManage extends Activity {
             tvtitle.setText("收入管理");//设置标题为"收入管理"
             textView.setText("付款方：");//设置"地点/付款方"标签文本为"付款方："
             //根据编号查找支出信息，并存储到tb_outaccount对象中
-            tb_inaccount inaccount=new DBInAcount.find(Integer.parseInt(strid));
+             inaccount=new DBInAcount(this).find(Integer.parseInt(strid));
             txtMoney.setText(String.valueOf(inaccount.getMoney()) );//显示金额
             txtTime.setText(inaccount.getTime());//显示时间
             spType.setPrompt(inaccount.getType());//显示类别
@@ -77,47 +89,64 @@ public class InfoManage extends Activity {
             public void onClick(View view) {
                 if(strType.equals("btnoutinfo"))//判断类型如果是btnoutinfo
                 {
-                    tb_outaccount tboutaccount=new tb_outaccount();//创建tb_outaccount对象
-                    tboutaccount.set_id(Integer.parseInt(strid));//设置编号
 
+                    //tboutaccount.set_id(Integer.parseInt(strid));//设置编号
                     tboutaccount.setMoney(Double.parseDouble(txtMoney.getText().toString()) );//设置金额
                     tboutaccount.setTime(txtTime.getText().toString());//设置时间
                     tboutaccount.setType(spType.getSelectedItem().toString());//设置类别
                     tboutaccount.setAddress(txtHA.getText().toString());//设置地点
                     tboutaccount.setMark(txtMark.getText().toString());//设置备注
-                    DBOutAccount.update(tboutaccount);//更新支出信息
+                    if(outaccountDAO.update(tboutaccount)){
+                        Toast.makeText(InfoManage.this,"【数据】修改成功！",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(InfoManage.this,"【数据】修改失败！",Toast.LENGTH_SHORT).show();
+
+                    };//更新支出信息
                 }
                 else if(strType.equals("btnininfo")){
-                    tb_inaccount tbinaccount=new  tb_inaccount();//创建tb_outaccount对象
-                    tbinaccount.set_id(Integer.parseInt(strid));//设置编号
+                    //tb_inaccount tbinaccount=new  tb_inaccount();//创建tb_outaccount对象
+                    //tbinaccount.set_id(Integer.parseInt(strid));//设置编号
 
-                    tbinaccount.setMoney(Double.parseDouble(txtMoney.getText().toString()) );//设置金额
-                    tbinaccount.setTime(txtTime.getText().toString());//设置时间
-                    tbinaccount.setType(spType.getSelectedItem().toString());//设置类别
-                    tbinaccount.setHandler(txtHA.getText().toString());//设置付款方
-                    tbinaccount.setMark(txtMark.getText().toString());//设置备注
-                    DBOutAccount.update(tbinaccount);//更新收入信息
+                    inaccount.setMoney(Double.parseDouble(txtMoney.getText().toString()) );//设置金额
+                    inaccount.setTime(txtTime.getText().toString());//设置时间
+                    inaccount.setType(spType.getSelectedItem().toString());//设置类别
+                    inaccount.setHandler(txtHA.getText().toString());//设置付款方
+                    inaccount.setMark(txtMark.getText().toString());//设置备注
+                    if(inAcount.update(inaccount)){
+                        Toast.makeText(InfoManage.this,"【数据】修改成功！",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(InfoManage.this,"【数据】修改失败！",Toast.LENGTH_SHORT).show();
+                    };//更新收入信息
                 }
                 //弹出信息提示
-                Toast.makeText(InfoManage.this,"【数据】修改成功！",Toast.LENGTH_SHORT).show();
+               // Toast.makeText(InfoManage.this,"【数据】修改成功！",Toast.LENGTH_SHORT).show();
             }
         });
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(strType.equals("btnoutinfo"))
+                if(strType.equals("btnininfo"))
                 {
-                    DBOutAccount.delete(Integer.parseInt(strid));
+                   if( inAcount.deleteById(Integer.parseInt(strid))){
+                       Toast.makeText(InfoManage.this,"【数据】删除成功！",Toast.LENGTH_SHORT).show();
+                   }
+                   else{
+                       Toast.makeText(InfoManage.this,"【数据】删除失败！",Toast.LENGTH_SHORT).show();
+                   }
                 }
-                else if(strType.equals("btnininfo"))
+                else if(strType.equals("btnoutinfo"))
                 {
-                    DBInAcount.delete(Integer.parseInt(strid));
+                    if(outaccountDAO.deleteById(Long.parseLong(strid))){
+                        Toast.makeText(InfoManage.this,"【数据】删除成功！",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(InfoManage.this,"【数据】删除失败！",Toast.LENGTH_SHORT).show();
+                    }
                 }
-                Toast.makeText(InfoManage.this,"【数据】删除成功！",Toast.LENGTH_SHORT).show();
+
             }
         });
 
-*/
     }
 
 }

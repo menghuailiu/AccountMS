@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import patrickstar.com.accountms.R;
+import patrickstar.com.accountms.fl_MainActivity;
 
 public class MainActivity extends Activity {
 
@@ -65,8 +66,8 @@ public class MainActivity extends Activity {
 
                     case 4:
                         //使用AddOutaccount窗口初始化Intent
-                     /*   intent = new Intent(MainActivity.this,Showinfo.class);
-                        startActivity(intent);*/
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.fl_MainActivity.class);
+                        startActivity(intent);
                         break;
                     case 5:
                         //使用Sysset窗口初始化Intent
