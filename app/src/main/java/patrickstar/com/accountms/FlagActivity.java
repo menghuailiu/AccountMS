@@ -27,13 +27,13 @@ public class FlagActivity extends AppCompatActivity {
         id= intent.getStringExtra("info");
 
 
+
         final DBFlag dbFlag = new DBFlag(this);
         final tb_flag flag = dbFlag.find(Integer.parseInt(id));
 
         text= (EditText) findViewById(R.id.txtFlag);
         edit = (Button) findViewById(R.id.btnflagSave);
         delete = (Button) findViewById(R.id.btnflagCancel);
-
         text.setText(flag.getFlag());
 
         edit.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +62,6 @@ public class FlagActivity extends AppCompatActivity {
                 }
             }
         });
-
 
 
         //记录类型oast.makeText(InfoManage.this,"【数据】修改成功！", Toast.LENGTH_SHORT).show();

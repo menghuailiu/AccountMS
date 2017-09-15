@@ -58,7 +58,8 @@ public class Inaccountinfo extends Activity {
                 String strInfo=String.valueOf(((TextView)view).getText());//记录收入信息
                 String strid=strInfo.substring(0,strInfo.indexOf('|'));//从收入信息中截取收入编号
                 Intent intent=new Intent(Inaccountinfo.this,InfoManage.class);//创建Intent对象
-                intent.putExtra(FLAG,new String[]{strid,strType});//设置传递数据
+               // intent.putExtra(FLAG,new String[]{strid,strType});//设置传递数据
+                intent.putExtra("info",strid+","+"btnininfo");
                 startActivity(intent);//执行Intent操作
 
             }
