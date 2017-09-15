@@ -25,7 +25,7 @@ public class FlagActivity extends AppCompatActivity {
         id= intent.getStringExtra("info");
 
         DBFlag dbFlag = new DBFlag(this);
-        dbFlag.
+        //dbFlag.
 
 
         //记录类型oast.makeText(InfoManage.this,"【数据】修改成功！", Toast.LENGTH_SHORT).show();

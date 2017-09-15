@@ -37,6 +37,7 @@ public class DBFlag {
     }
     public DBFlag(Context context1){
         context=context1;
+        initDb();
     }
     /**
      * 新增便签信息

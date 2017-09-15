@@ -164,9 +164,9 @@ public class fl_MainActivity extends AppCompatActivity {
                 String strid = strinfo.substring(0,strinfo.indexOf("|"));
                 Toast.makeText(fl_MainActivity.this, strid,Toast.LENGTH_LONG).show();
                 if(strType=="btnflaginfo"){
-                    Intent intent  = new Intent(fl_MainActivity.this,"");
+                   /* Intent intent  = new Intent(fl_MainActivity.this,"");
                     intent.putExtra("info",strid);
-                    startActivity(intent);
+                    startActivity(intent);*/
                 }else{
                 Intent intent = new Intent(fl_MainActivity.this,InfoManage.class);
                 intent.putExtra("info",strid+","+strType);
