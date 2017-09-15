@@ -1,7 +1,7 @@
 package patrickstar.com.accountms;
 
 /**
- * Created by 静静 on 17/9/13.
+ * Created by 静静 on 17/9/13.   13
  */
 
 import android.content.DialogInterface;
@@ -18,6 +18,7 @@ import java.util.List;
 
 import greendao.gen.DaoMaster;
 import greendao.gen.DaoSession;
+import patrickstar.com.accountms.db.DBOpenHelper;
 import patrickstar.com.accountms.db.DBPwd;
 import patrickstar.com.accountms.model.tb_pwd;
 
@@ -27,7 +28,12 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+   /*     DBOpenHelper helpe=new DBOpenHelper(Login.this); //创建数据库
+        helpe.getWritableDatabase();*/
+
         String str="";
+      /*  DBOpenHelper helper=new DBOpenHelper(Login.this);
+        helper.getWritableDatabase();*/
         DBPwd dao=new DBPwd(Login.this);
         int count=0;
         try {
@@ -47,7 +53,9 @@ public class Login extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {
 
                 }
+
             });
+            dialog.show();
         }
         final EditText txtlogin=(EditText)findViewById(R.id.txtLogin);  //获取密码文本框
         Button btnlogin=(Button) findViewById(R.id.btnLogin);            //获取"登录"按钮

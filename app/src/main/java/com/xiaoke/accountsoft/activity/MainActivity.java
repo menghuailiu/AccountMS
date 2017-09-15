@@ -45,8 +45,8 @@ public class MainActivity extends Activity {
                 switch (arg2){
                     case 0:
                         //使用AddOutaccount窗口初始化Intent
-                      /*  intent = new Intent(MainActivity.this,AddOutAccount.class);
-                        startActivity(intent);*/
+                       intent = new Intent(MainActivity.this,patrickstar.com.accountms.AddOutAccount.class);
+                        startActivity(intent);
                         break;
 
 
@@ -58,8 +58,8 @@ public class MainActivity extends Activity {
 
                     case 2:
                         //使用Outaccountinfo窗口初始化Intent
-                        /*intent = new Intent(MainActivity.this,patrickstar.com.accountms.Outaccountinfo.class);
-                        startActivity(intent);*/
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.OutAccountInfo.class);
+                        startActivity(intent);
                         break;
                     case 3:
                         //使用Inaccountinfo窗口初始化Intent
@@ -74,8 +74,8 @@ public class MainActivity extends Activity {
                         break;
                     case 5:
                         //使用Sysset窗口初始化Intent
-                        /*intent = new Intent(MainActivity.this,Sysset.class);
-                        startActivity(intent);*/
+                        intent = new Intent(MainActivity.this,patrickstar.com.accountms.Sysset.class);
+                        startActivity(intent);
                         break;
                     case 6:
                         //使用Accountflag窗口初始化Intent

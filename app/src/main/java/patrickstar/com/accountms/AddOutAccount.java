@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import patrickstar.com.accountms.db.DBOutAccount;
+import patrickstar.com.accountms.model.tb_outaccount;
+
 /*import patrickstar.com.accountms.dao.tb_outaccountDao;*/
 import patrickstar.com.accountms.model.tb_outaccount;
 
@@ -60,23 +63,37 @@ public class AddOutAccount extends Activity {
         btnOutSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /* String txtOtMoney=txOutMoney.getText().toString();//获取金额文本框
+              String txtOtMoney=txOutMoney.getText().toString();//获取金额文本框
                 if(!txtOtMoney.isEmpty()){//判断金额不为空
                     //
-                    tb_outaccountDao outaccountDao=new tb_outaccountDao(AddOutAccount.this);
-                    tb_outaccount tboutaccount=new tb_outaccount(outaccountDao.getMaxId()+1,Double.parseDouble(txtOtMoney)
+                    DBOutAccount outaccountDao=new DBOutAccount(AddOutAccount.this);
+                    tb_outaccount tboutaccount=new tb_outaccount();
+                    tboutaccount.setId(Long.parseLong(String.valueOf(outaccountDao.getMaxId()+1)));
+                    tboutaccount.setType(spOutType.getSelectedItem().toString());
+                    tboutaccount.setMark(txOutMark.getText().toString());
+                    tboutaccount.setAddress(txOutAddress.getText().toString());
+                    tboutaccount.setTime(txtOutTime.getText().toString());
+                    tboutaccount.setMoney(Double.parseDouble(txtOtMoney));
+                            /*(outaccountDao.getMaxId()+1,Double.parseDouble(txtOtMoney)
                     ,txtOutTime.getText().toString(),spOutType.getSelectedItem().toString(),
                             txOutAddress.getText().toString(),
-                            txOutMark.getText().toString());
+                            txOutMark.getText().toString());*/
                     outaccountDao.add(tboutaccount);
                     //弹出提示框
                     Toast.makeText(AddOutAccount.this,"【新增支出】数据添加成功！",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(AddOutAccount.this,"请输入支出金额！",Toast.LENGTH_SHORT).show();
-                }*/
+                }
             }
         });
+        btnOutCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         }
     private void updateDisplay(){
         txtOutTime.setText(new

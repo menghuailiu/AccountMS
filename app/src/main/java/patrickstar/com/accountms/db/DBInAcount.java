@@ -36,6 +36,7 @@ public class DBInAcount {
     }
     public DBInAcount(Context context1){
         context=context1;initDb();
+        initDb();
     }
 
 
@@ -129,11 +130,38 @@ public class DBInAcount {
         return false;
     }
 
-public long getMax(){
+    /**
+     * 获取最大数据
+     * @return
+     */
+    public long getMax(){
     long g=0;
     try {
         g=inaccountDao.loadAll().size();
     }catch (Exception e){return 0;}
     return g;
-}
+    }
+
+    /**
+     * 获取所有数据
+     * @param start 开始位置
+     * @param count 结束位置
+     * @return 收入表的集合
+     */
+    public List<tb_inaccount> getScrollData(int start,int count)
+    {
+       return inaccountDao.queryBuilder().limit(count).list();
+
+    }
+
+    /**
+     * 获取总记录数
+     * @return int
+     */
+    public int getCount()
+    {
+        return inaccountDao.loadAll().size();
+    }
+
+
 }

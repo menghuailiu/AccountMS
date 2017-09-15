@@ -9,6 +9,7 @@ import java.util.List;
 
 import greendao.gen.DaoMaster;
 import greendao.gen.DaoSession;
+import patrickstar.com.accountms.model.tb_inaccount;
 import patrickstar.com.accountms.model.tb_outaccount;
 import greendao.gen.*;
 /**
@@ -33,9 +34,11 @@ public class DBOutAccount {
         helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
+        outAccountDao=session.getTb_outaccountDao();
     }
     public DBOutAccount(Context context1){
         context=context1;
+        initDb();
     }
 
 
@@ -132,12 +135,12 @@ public class DBOutAccount {
      * 获取支出信息
      */
     public List<tb_outaccount> getScrollData(int start,int count){
-        List<tb_outaccount> tboutaccount=new ArrayList<tb_outaccount>();//创建集合对象
+/*        List<tb_outaccount> tboutaccount=new ArrayList<tb_outaccount>();//创建集合对象
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor=db.rawQuery("select * from tb_outaccount limit ?,?",
                 new String[]{String.valueOf(start),
                 String .valueOf(count)});
-/*        while (cursor.moveToNext()){
+*//*        while (cursor.moveToNext()){
             tboutaccount.add(new tb_outaccount(cursor.getInt(cursor.getColumnIndex("_id")),
                     cursor.getDouble(cursor.getColumnIndex("money")),
                     cursor.getString(cursor.getColumnIndex("time")),
@@ -145,23 +148,32 @@ public class DBOutAccount {
                     cursor.getString(cursor.getColumnIndex("address")),
                     cursor.getString(cursor.getColumnIndex("mark"))));//将遍历到的支出信息添加到集合中
 
-        }*/
-        return tboutaccount;//返回集合
+        }*//*
+        return tboutaccount;//返回集合*/
+        return outAccountDao.queryBuilder().limit(count).build().list();
     }
     /**
      * 获取记录数
      */
-    public long getCount(){
-        SQLiteDatabase db=helper.getWritableDatabase();
+
+    public int getCount(){
+        /*SQLiteDatabase db=helper.getWritableDatabase();
         Cursor cursor=db.rawQuery("select count(_id) from tb_outaccount",null);//获取支出信息的记录数
         if(cursor.moveToNext()){
             return cursor.getLong(0);
+        }*/
+        int i=0;
+        try{
+            i=outAccountDao.loadAll().size();//如果没有数据，返回0
+        }catch (Exception e){
+
         }
-        return 0;//如果没有数据，返回0
+        return i;
     }
     /**
      * 获取最大编号
      */
+
     public int getMaxId(){
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor=db.rawQuery("select max(_id) from tb_outaccount",null);
@@ -170,5 +182,7 @@ public class DBOutAccount {
         }
         return 0;
     }
+
+
 
 }
