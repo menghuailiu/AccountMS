@@ -29,7 +29,7 @@
         android:layout_height="2dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="#4cc" />
+        android:background="#5bf" />
     <View
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
@@ -173,7 +173,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
                 android:textColor="#fff"
-                android:background="@drawable/shap2"
+                android:background="@drawable/shap1"
                 android:text="返回"
                 />
             <Button
@@ -183,7 +183,7 @@
                 android:layout_toLeftOf="@id/btnOutBack"
                 android:layout_marginLeft="10dp"
                 android:text="取消"
-                android:background="@drawable/shap1"
+                android:background="@drawable/shap2"
                 android:textColor="#fff"
 
                 />
