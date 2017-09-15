@@ -88,6 +88,17 @@ public class Login extends AppCompatActivity {
 
             }
         });
+
+        //退出登录
+        Button btnClose=(Button)findViewById(R.id.btnClose);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_MAIN,null);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                startActivity(intent);
+            }
+        });
     }
 }
 
