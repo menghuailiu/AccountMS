@@ -27,6 +27,7 @@ public class Inaccountinfo extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         lvinfo=(ListView)findViewById(R.id.lvinaccountinfo);//获取布局文件中的ListView组件
+        /*
         ShowInfo(R.id.btnininfo);//调用自定义方法显示收入信息
         lvinfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,7 +59,7 @@ public class Inaccountinfo extends Activity {
         }
         //使用字符串数组初始化ArrayAdapter对象
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfos);
-        lvinfo.setAdapter(arrayAdapter);//为ListView列表设置数据源
+        lvinfo.setAdapter(arrayAdapter);//为ListView列表设置数据源*/
 
     }
 }

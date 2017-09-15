@@ -8,14 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.util.List;
-
 import patrickstar.com.accountms.dao.tb_outaccountDao;
 import patrickstar.com.accountms.db.DBOutAccount;
 import patrickstar.com.accountms.model.tb_outaccount;
-
-
 /**
  * Created by 秧心媛 on 17/9/14.
  * 显示所有支出信息
@@ -26,8 +22,9 @@ public class OutAccountInfo extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.outaccountinfo);
-        lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
-        ShowInfo(R.id.btnoutinfo);
+        /*
+       lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
+        ShowInfo(R.id.btnininfo);
 
 
         //点击查看详细信息界面
@@ -63,7 +60,7 @@ public class OutAccountInfo extends Activity {
         }
         //使用字符串数组初始化arrayadapter对象
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfo);
-        lvOutinfo.setAdapter(arrayAdapter);
+        lvOutinfo.setAdapter(arrayAdapter);*/
     }
 
 }

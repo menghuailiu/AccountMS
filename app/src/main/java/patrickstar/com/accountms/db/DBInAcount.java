@@ -128,47 +128,6 @@ public class DBInAcount {
         }
         return false;
     }
-    /**
-     * 获取支出信息
-     */
-    public List<tb_inaccount> getScrollData(int start, int count){
-        List<tb_inaccount> tbinaccount= new ArrayList<>();//创建集合对象
-        SQLiteDatabase db = helper.getWritableDatabase();
-        Cursor cursor=db.rawQuery("select * from tb_inaccount limit ?,?",
-                new String[]{String.valueOf(start),
-                        String .valueOf(count)});
-        while (cursor.moveToNext()){
-            tbinaccount.add(new tb_inaccount(cursor.getInt(cursor.getColumnIndex("_id")),
-                    cursor.getDouble(cursor.getColumnIndex("money")),
-                    cursor.getString(cursor.getColumnIndex("time")),
-                    cursor.getString(cursor.getColumnIndex("type")),
-                    cursor.getString(cursor.getColumnIndex("handler")),
-                    cursor.getString(cursor.getColumnIndex("mark"))));//将遍历到的支出信息添加到集合中
 
-        }
-        return tbinaccount;//返回集合
-    }
-    /**
-     * 获取记录数
-     */
-    public long getCount(){
-        SQLiteDatabase db=helper.getWritableDatabase();
-        Cursor cursor=db.rawQuery("select count(_id) from tb_inaccount",null);//获取支出信息的记录数
-        if(cursor.moveToNext()){
-            return cursor.getLong(0);
-        }
-        return 0;//如果没有数据，返回0
-    }
-    /**
-     * 获取最大编号
-     */
-    public int getMaxId(){
-        SQLiteDatabase db = helper.getWritableDatabase();
-        Cursor cursor=db.rawQuery("select max(_id) from tb_inaccount",null);
-        while (cursor.moveToLast()){
-            return cursor.getInt(0);
-        }
-        return 0;
-    }
 
 }

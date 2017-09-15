@@ -1,11 +1,9 @@
 package patrickstar.com.accountms.db;
 
 import android.content.Context;
-import android.widget.ListView;
 
 import java.util.List;
 
-import patrickstar.com.accountms.MainActivity;
 import  patrickstar.com.accountms.model.*;
 import patrickstar.com.accountms.dao.tb_flagDao;
 /**

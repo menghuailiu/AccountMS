@@ -1,14 +1,15 @@
-package patrickstar.com.accountms;
+package com.xiaoke.accountsoft.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-//sss
-public class MainActivity extends AppCompatActivity {
+import patrickstar.com.accountms.R;
+
+public class Test extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_test);
     }
 }

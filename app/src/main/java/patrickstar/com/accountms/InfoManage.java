@@ -20,6 +20,7 @@ import patrickstar.com.accountms.model.tb_outaccount;
  */
 
 public class InfoManage extends Activity {
+    /*
     protected  static final int DATE_DIALOG_ID=0;//创建日期对话框常量
     TextView tvtitle,textView;//创建两个TextView对象
     EditText txtMoney,txtTime,txtHA,txtMark;//创建四个EditText对象
@@ -118,6 +119,6 @@ public class InfoManage extends Activity {
         });
 
 
-    }
+    }*/
 
 }

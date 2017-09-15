@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.xiaoke.accountsoft.activity.MainActivity;
+
 import patrickstar.com.accountms.model.tb_pwd;
 
 import patrickstar.com.accountms.db.DBOpenHelper;
