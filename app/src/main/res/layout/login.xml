@@ -43,7 +43,7 @@
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="登录"
-        android:layout_marginLeft="57dp"
+        android:layout_margin12Left="57dp"
         android:layout_marginStart="57dp"
         android:layout_alignBaseline="@+id/btnClose"
         android:layout_alignBottom="@+id/btnClose"
