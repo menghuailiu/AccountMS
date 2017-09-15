@@ -34,6 +34,8 @@ public class DBFlag {
         helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
+        flagDao=session.getTb_flagDao();
+
     }
     public DBFlag(Context context1){
         context=context1;
