@@ -41,7 +41,9 @@ public class Accountflag extends Activity {
                 if(!strFlag.isEmpty())
                 {
                      DBFlag  flagDAO = new DBFlag(Accountflag.this);
-                     tb_flag tbf = new tb_flag(flagDAO.getMax()+1,strFlag);
+                     tb_flag tbf = new tb_flag();
+                    tbf.setId(Long.parseLong(String.valueOf(flagDAO.getMax()+1)));
+                    tbf.setFlag(strFlag);
                      flagDAO.insert(tbf);
                     Toast.makeText(Accountflag.this,"新便签添加成功！",Toast.LENGTH_SHORT).show();
                 }

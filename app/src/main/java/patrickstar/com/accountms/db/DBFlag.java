@@ -34,9 +34,12 @@ public class DBFlag {
         helper = new DaoMaster.DevOpenHelper(context, "account.db", null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();
+        flagDao=session.getTb_flagDao();
+
     }
     public DBFlag(Context context1){
         context=context1;
+        initDb();
     }
     /**
      * 新增便签信息
@@ -46,7 +49,6 @@ public class DBFlag {
      */
     public int insert(tb_flag flag)
     {
-
         long flagid=flagDao.insert(flag);
         return Integer.parseInt(String.valueOf(flagid));
     }
