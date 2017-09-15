@@ -42,14 +42,14 @@ public class OutInfoActivity extends AppCompatActivity {
         /*delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (dbFlag.deleteById(Integer.parseInt(id))) {
+              /*  if (dbFlag.deleteById(Integer.parseInt(id))) {
                     //删除成功
 
 
                 }
                 else{
                     //删除失败
-                }
+                }*/
             }
         });*/
 

@@ -39,17 +39,7 @@
         android:orientation="vertical"
         android:layout_weight="3">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
 
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:text="新增便签"
-            android:textColor="#ffffff"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            android:layout_height="40dp"/>
 
     </LinearLayout>
     <LinearLayout
@@ -95,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
-                android:text="取消" />
+                android:text="编辑" />
 
             <Button
                 android:id="@+id/btnflagSave"
@@ -103,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/btnflagCancel"
                 android:maxLength="200"
-                android:text="保存">
+                android:text="取消">
 
             </Button>
 
