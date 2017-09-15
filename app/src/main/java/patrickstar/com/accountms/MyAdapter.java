@@ -74,8 +74,6 @@ public class MyAdapter extends BaseAdapter {
                 holder = (ViewHolder) view.getTag();
             }
 
-
-
         tb_inaccount  inaccount  = (tb_inaccount) iData.get(i);
         holder.type.setText((String)iData.get(i).getType());
         //holder.chk.setChecked(mData.get(i).isChk());
