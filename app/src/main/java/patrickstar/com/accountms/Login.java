@@ -18,6 +18,7 @@ import java.util.List;
 
 import greendao.gen.DaoMaster;
 import greendao.gen.DaoSession;
+import patrickstar.com.accountms.db.DBOpenHelper;
 import patrickstar.com.accountms.db.DBPwd;
 import patrickstar.com.accountms.model.tb_pwd;
 
@@ -27,6 +28,9 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+   /*     DBOpenHelper helpe=new DBOpenHelper(Login.this); //创建数据库
+        helpe.getWritableDatabase();*/
+
         String str="";
         DBPwd dao=new DBPwd(Login.this);
         int count=0;

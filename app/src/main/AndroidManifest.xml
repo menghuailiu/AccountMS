@@ -31,7 +31,8 @@
 
         <activity android:name=".AddOutAccount">
         </activity>
-
+        <activity android:name=".OutAccountInfo">
+        </activity>
 <!--        <activity android:name=".OutAccountInfo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

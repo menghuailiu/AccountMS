@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/*import patrickstar.com.accountms.dao.tb_outaccountDao;*/
+import greendao.gen.*;
+import patrickstar.com.accountms.db.DBOutAccount;
 import patrickstar.com.accountms.model.tb_outaccount;
 
 
@@ -21,32 +22,50 @@ import patrickstar.com.accountms.model.tb_outaccount;
  */
 
 public class OutAccountInfo extends Activity {
+    public static final String FLAG="id";//定义一个常量，作为请求码
+    ListView lvOutinfo;
+    String strType="";//创建字符串    ，记录管理类型
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.outaccountinfo);
-      /*  lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
-        ShowInfo(R.id.btninfo);
+       lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
+      //  ShowInfo(R.id.btninfo);
 
+        String[] strInfo=null;
+        ArrayAdapter<String> arrayAdapter=null;//定义字符串数组存储收入信息
+        strType="btninfo";
+        DBOutAccount outaccountinfo=new DBOutAccount(OutAccountInfo.this);
+        //获取所有信息存储到泛型集合list中
+        int i=outaccountinfo.getCount();
+        List<tb_outaccount> listinfo=outaccountinfo.getScrollData(0,i);
+        strInfo=new String[listinfo.size()];//设置字符串数组的长度
+        int m=0;
+        for(tb_outaccount tboutaccount:listinfo){
+            //将收入相关信息组合成一个字符串，存储到字符串数组的相应位置
+            strInfo[m]=tboutaccount.getId()+"|"+tboutaccount.getType()+""+String.valueOf(tboutaccount.getMoney())+"元"+tboutaccount.getTime();
+            m++;
 
+        }
+        //使用字符串数组初始化arrayadapter对象
+        ArrayAdapter arrayAdapter1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfo);
+        lvOutinfo.setAdapter(arrayAdapter1);
         //点击查看详细信息界面
         lvOutinfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            //方法覆写
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String strinf=String.valueOf(((TextView)view).getText());//记录支出信息
+               /* String strinf=String.valueOf(((TextView)view).getText());//记录支出信息
                 String strid=strinf.substring(0,strinf.indexOf('|'));//从收入信息中截取编号
                 Intent intent=new Intent(OutAccountInfo.this,DetailOutMess.class);//创建intent对象
                 intent.putExtras(FLAG,new String[]{strid,strType});//设置传递参数
-                startActivity(intent);//执行intent操作
+                startActivity(intent);//执行intent操作*/
             }
-        });*/
+        });
     }
-    public static final String FLAG="id";//定义一个常量，作为请求码
-    ListView lvOutinfo;
-    String strType="";//创建字符串    ，记录管理类型
+
     private void ShowInfo(int intType){
-     /*   String[] strInfo=null;
+     /*  String[] strInfo=null;
         ArrayAdapter<String> arrayAdapter=null;//定义字符串数组存储收入信息
         strType="btninfo";
         tb_outaccountDao outaccountinfo=new  tb_outaccountDao(OutAccountInfo.this);

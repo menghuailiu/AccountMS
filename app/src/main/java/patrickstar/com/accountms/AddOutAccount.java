@@ -87,6 +87,13 @@ public class AddOutAccount extends Activity {
                 }
             }
         });
+        btnOutCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         }
     private void updateDisplay(){
         txtOutTime.setText(new
