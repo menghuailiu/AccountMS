@@ -22,6 +22,7 @@ public class Accountflag extends Activity {
     EditText txtFlag;
     Button btnflagSaveButton;
     Button btnflagCanceButton;
+    Button btnflagsavebtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class Accountflag extends Activity {
         txtFlag = (EditText)findViewById(R.id.txtFlag);
         btnflagCanceButton = (Button)findViewById(R.id.btnflagCancel);
         btnflagSaveButton = (Button)findViewById(R.id.btnflagSave);
+        btnflagsavebtn = (Button)findViewById(R.id.btnflagSave1);//返回主页的按钮
 
 
         //点击保存时，保存输入信息
@@ -58,8 +60,25 @@ public class Accountflag extends Activity {
         btnflagCanceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+                String strFlag = txtFlag.getText().toString();
+                //判断便签内容是否为空
+                if(!strFlag.isEmpty())
+                {
+                    txtFlag.setText("");//清空便签文本框
+                }else
+                    {
+                        Toast.makeText(Accountflag.this,"还未输入便签内容！",Toast.LENGTH_SHORT).show();
+                }
 
-                txtFlag.setText("");//清空便签文本框
+
+            }
+        });
+
+        //点击主页时，关闭当前Activity，返回主界面
+        btnflagsavebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();//关闭当前Activity
             }
         });
 
