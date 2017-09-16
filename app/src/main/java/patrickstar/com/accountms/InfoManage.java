@@ -128,7 +128,7 @@ public class InfoManage extends Activity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (strType.equals("btnininfo")) {
 
-                            if (!inAcount.deleteById(Integer.parseInt(strid))) {
+                            if (inAcount.deleteById(Integer.parseInt(strid))) {
                                 //String result = inAcount.deleteById(Integer.parseInt(strid));
                                 Toast.makeText(InfoManage.this, "【数据】删除成功！", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(InfoManage.this,fl_MainActivity.class));
