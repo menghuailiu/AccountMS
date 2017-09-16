@@ -67,7 +67,7 @@ public class DBFlag {
         {
             bo=false;
         }
-        return false;
+        return bo;
     }
 
 
@@ -84,7 +84,7 @@ public class DBFlag {
         {
             bo=false;
         }
-        return false;
+        return bo;
     }
 
     /**
@@ -117,17 +117,19 @@ public class DBFlag {
      */
     public tb_flag find(int id)
     {
-        QueryBuilder bu;
-        bu = flagDao.queryBuilder().where(tb_inaccountDao.Properties.Id.eq(id));
-        tb_flag tb=null;
+        tb_flag bu=null;
         try {
-            tb=(tb_flag) bu.list().get(0);
+
+            bu = flagDao.queryBuilder().where(tb_flagDao.Properties.Id.eq(id)).build().list().get(0);
+  /*      tb_flag tb=null;*/
+
+           // tb=(tb_flag) bu.list().get(0);
         }
         catch (Exception ex)
         {
-            return tb;
+            return null;
         }
-        return tb;
+        return bu;
     }
 
     /**
