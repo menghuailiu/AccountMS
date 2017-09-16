@@ -212,6 +212,4 @@ public class fl_MainActivity extends AppCompatActivity {
             startActivity(intent);
             return super.onOptionsItemSelected(item);
         }
-
-
 }
