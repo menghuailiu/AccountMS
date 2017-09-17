@@ -180,7 +180,7 @@
             <Button
                 android:id="@+id/btnOutCancel"
                 android:layout_width="60dp"
-                android:layout_height="5dp"
+                android:layout_height="50dp"
                 android:layout_alignEnd="@+id/txOutMark"
                 android:layout_alignParentBottom="true"
                 android:layout_alignRight="@+id/txOutMark"

@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     >
   <LinearLayout
       android:layout_width="match_parent"
@@ -11,25 +12,41 @@
       android:orientation="vertical"
       android:layout_weight="3"
       >
+
       <RelativeLayout
           android:layout_width="wrap_content"
           android:layout_height="wrap_content">
-      <ImageView
-          android:id="@+id/image"
-          style="@style/titleImage"
-          android:src="@drawable/addmoney"
 
-          />
-      <TextView
-          android:layout_width="match_parent"
-          android:layout_height="40dp"
-          android:text="新增收入"
-          style="@style/textTitle"
-          android:layout_marginLeft="50dp"
-          android:gravity="center_vertical|left"
-          android:layout_toRightOf="@+id/imageView1"
-          />
+          <ImageView
+              android:id="@+id/image"
+              style="@style/titleImage"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:layout_marginTop="15dp"
+              android:src="@drawable/addmoney" />
+
+          <TextView
+              style="@style/textTitle"
+              android:layout_width="match_parent"
+              android:layout_height="40dp"
+              android:gravity="center_vertical|left"
+              android:text="新增收入"
+              android:layout_toRightOf="@+id/image"
+              android:layout_toEndOf="@+id/image" />
+
+          <Button
+              android:id="@+id/btnInSave"
+              style="?android:attr/borderlessButtonStyle"
+              android:layout_width="50dp"
+              android:layout_height="25dp"
+              android:layout_alignParentRight="true"
+              android:layout_marginTop="65px"
+              android:background="#fff"
+              android:text="完成"
+              android:textColor="#848484"
+              android:textSize="18dp" />
       </RelativeLayout>
+
       <View
           android:layout_width="fill_parent"
           android:layout_marginTop="10dp"
@@ -53,7 +70,7 @@
         >
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="400dp"
             android:padding="10dp"
             >
             <TextView
@@ -159,7 +176,21 @@
                 android:background="@drawable/editviewborder"
                 android:layout_marginTop="15dp"
                 />
-            </RelativeLayout>
+            <Button
+                android:id="@+id/btnInCancel"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/txtInMark"
+                android:background="#fff"
+                android:text="清空"
+                android:textColor="#848484"
+                android:textSize="18dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_alignRight="@+id/txtInMark"
+                />
+
+        </RelativeLayout>
         </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -172,28 +203,11 @@
             android:layout_height="match_parent"
             android:padding="10dp"
             >
-            <Button
-                android:id="@+id/btnInCancel"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/shap2"
-                android:text="清空"
-                />
-            <Button
-                android:id="@+id/btnInSave"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/btnInCancel"
-                android:background="@drawable/shap"
-                android:text="保存"
-                />
+
             <Button
                 android:id="@+id/btnReturn"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/btnInSave"
                 android:background="@drawable/shap2"
                 android:text="返回主页"
                 android:visibility="invisible"

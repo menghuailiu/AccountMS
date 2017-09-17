@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:background="#fff">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -11,17 +12,29 @@
             android:id="@+id/imageView1"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:src="@drawable/shujuguanli"
             />
         <TextView
-            android:id="@+id/tv1"
+            style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="系统管理"
-            android:textSize="26px"
             android:gravity="center_vertical|left"
-            android:layout_toRightOf="@+id/imageView1"/>
+            android:text="系统设置"
+            android:layout_toEndOf="@+id/imageView1"
+            android:layout_toRightOf="@+id/imageView1"
+            android:layout_alignBottom="@+id/imageView1"/>
+        <Button
+            android:id="@+id/btnSet"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="65px"
+            android:background="#fff"
+            android:text="完成"
+            android:textColor="#848484"
+            android:textSize="18dp"/>
     </RelativeLayout>
     <View
         android:layout_width="fill_parent"
@@ -30,7 +43,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="#e7e4e5"
-        />
+        android:id="@+id/view" />
 
 
     <EditText
@@ -39,33 +52,23 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="请输入密码"
-        android:layout_marginBottom="34dp"
         android:layout_above="@+id/btnsetCancel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <Button
         android:id="@+id/btnsetCancel"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
         android:text="取消"
-        android:layout_marginRight="51dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginBottom="195dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="#5294CD"/>
-    <Button
-        android:id="@+id/btnSet"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:text="设置"
-        android:layout_marginLeft="54dp"
-        android:layout_marginStart="54dp"
-        android:layout_alignBaseline="@+id/btnsetCancel"
-        android:layout_alignBottom="@+id/btnsetCancel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#5294CD"/>
+        android:layout_marginRight="39dp"
+        android:layout_marginEnd="39dp"
+        android:background="#fff"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/view"
+        android:layout_alignEnd="@+id/view"
+        android:textColor="#848484"
+        android:textSize="18dp"/>
+
 
 </RelativeLayout>
