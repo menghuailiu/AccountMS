@@ -33,7 +33,7 @@ public class OutAccountInfo extends Activity {
         setContentView(R.layout.outaccountinfo);
 
        lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
-        btnback=(Button)findViewById(R.id.btnBack);
+      //  btnback=(Button)findViewById(R.id.btnBack);
       //  ShowInfo(R.id.btninfo);
 
         String[] strInfo=null;
@@ -47,7 +47,8 @@ public class OutAccountInfo extends Activity {
         int m=0;
         for(tb_outaccount tboutaccount:listinfo){
             //将收入相关信息组合成一个字符串，存储到字符串数组的相应位置
-            strInfo[m]=tboutaccount.getId()+"|"+tboutaccount.getType()+""+String.valueOf(tboutaccount.getMoney())+"元"+tboutaccount.getTime();
+            //strInfo[m]=tboutaccount.getId()+"|"+tboutaccount.getType()+""+String.valueOf(tboutaccount.getMoney())+"元"+tboutaccount.getTime();
+            strInfo[m]=(m+1)+"|"+tboutaccount.getType()+""+String.valueOf(tboutaccount.getMoney())+"元    "+tboutaccount.getTime();
             m++;
 
         }
@@ -67,12 +68,12 @@ public class OutAccountInfo extends Activity {
             }
         });
         //返回按钮
-        btnback.setOnClickListener(new View.OnClickListener() {
+      /*  btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
     }
 
     private void ShowInfo(int intType){

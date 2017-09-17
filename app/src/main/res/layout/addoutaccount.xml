@@ -132,7 +132,6 @@
                 android:id="@+id/txOutAddress"
                 android:layout_toRightOf="@+id/tvOutAddress"
                 android:layout_below="@+id/spOutType"
-
                 android:singleLine="false"
                 />
             <TextView
@@ -151,7 +150,12 @@
                     android:layout_toRightOf="@id/tvOutMark"
                     android:gravity="top"
                     android:singleLine="false"
-                    android:layout_below="@+id/tvOutAddress" />
+                    android:layout_below="@+id/tvOutAddress"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:background="@drawable/editviewborder"
+                    android:layout_marginTop="15dp"
+                    />
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout
@@ -175,6 +179,7 @@
                 android:textColor="#fff"
                 android:background="@drawable/shap1"
                 android:text="返回"
+                android:visibility="invisible"
                 />
             <Button
                 android:layout_width="80dp"
@@ -182,7 +187,7 @@
                 android:id="@+id/btnOutCancel"
                 android:layout_toLeftOf="@id/btnOutBack"
                 android:layout_marginLeft="10dp"
-                android:text="取消"
+                android:text="清空"
                 android:background="@drawable/shap2"
                 android:textColor="#fff"
 

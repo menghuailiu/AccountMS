@@ -140,8 +140,13 @@ public class DBFlag {
     int i=0;
     try{
         i=flagDao.loadAll().size();
-    }catch (Exception ex){
+        List<tb_flag> tb=flagDao.loadAll();
+        int j=tb.size();
+        tb_flag tbi=tb.get(j-1);
+        i=Integer.parseInt(String.valueOf(tbi.getId()));
 
+    }catch (Exception ex){
+            i=0;
     }
     return  i;
 }

@@ -173,7 +173,6 @@ public class DBOutAccount {
     /**
      * 获取最大编号
      */
-
     public int getMaxId(){
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor=db.rawQuery("select max(_id) from tb_outaccount",null);
@@ -183,6 +182,16 @@ public class DBOutAccount {
         return 0;
     }
 
-
-
+    /**
+     * 返回所有支出
+     * @return long类型的支出
+     */
+    public long sum(){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor=db.rawQuery("select sum(money) from tb_outaccount",null);
+        while (cursor.moveToLast()){
+            return cursor.getInt(0);
+        }
+        return 0;
+    }
 }

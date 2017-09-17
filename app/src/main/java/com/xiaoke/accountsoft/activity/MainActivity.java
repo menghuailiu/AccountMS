@@ -1,13 +1,20 @@
 package com.xiaoke.accountsoft.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
+import patrickstar.com.accountms.Login;
 import patrickstar.com.accountms.R;
+import patrickstar.com.accountms.db.DBInAcount;
+import patrickstar.com.accountms.db.DBOutAccount;
 import patrickstar.com.accountms.fl_MainActivity;
 
 public class MainActivity extends Activity {
@@ -85,15 +92,37 @@ public class MainActivity extends Activity {
                         startActivity(intent);
                         break;
                     case 7:
-                       finish();//若点击的是关闭，则关闭当前Activity
+                        finish();//若点击的是关闭，则关闭当前Activity
 
-
-
+                        //新增  罗
+                        Intent intent1 = new Intent(Intent.ACTION_MAIN,null);
+                        intent1.addCategory(Intent.CATEGORY_HOME);
+                        startActivity(intent1);
                 }
 
             }
         });
 
+        //添加代码  罗  用于显示用户总收入，总支出，余额
+        long income=new DBInAcount(MainActivity.this).sum();
+        long outaccount=new DBOutAccount(MainActivity.this).sum();
+        long balance=income-outaccount;//余额
+        AlertDialog alertDialog=new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("收支情况");
+        alertDialog.setMessage("总收入:"+income+"元，\n"+"总支出："+outaccount+"元，\n"+"余额:"+balance+"元");
+        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        alertDialog.show();
+
+
+       /* WindowManager wm = this.getWindowManager();
+        int width = wm.getDefaultDisplay().getWidth();
+        int height = wm.getDefaultDisplay().getHeight();
+        TextView szqk=(TextView)findViewById(R.id.szqk);*/
 
     }
 

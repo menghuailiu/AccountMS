@@ -15,13 +15,7 @@
 
 
     添加了以后就会自动下载  不添加
-    buildscript {
-        存储库{
-            mavenCentral（）
-        }
-        依赖{
-            classpath'org.greenrobot：greendao-gradle-plugin：3.0.0'
-        }
+
  2、创建实体类
 
  @Entity

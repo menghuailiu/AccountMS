@@ -98,7 +98,7 @@ public class AddOutAccount extends Activity {
                // SimpleDateFormat formatter = new SimpleDateFormat ("yyyy年MM月dd日 HH:mm:ss ");
                // Date curDate = new Date(System.currentTimeMillis());//获取当前时间
                 //String str = formatter.format(curDate);
-                txtOutTime.setText("");
+             /*   txtOutTime.setText("");*/
                 txOutAddress.setText("");
                 txOutMark.setText("");
             }

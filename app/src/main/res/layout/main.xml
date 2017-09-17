@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <!-- 主页面-->
 <GridView android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -9,6 +12,21 @@
     android:stretchMode="spacingWidthUniform"
     android:gravity="center"
     android:id="@+id/gvInfo"
+    android:background="@drawable/bgmain"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
 </GridView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="收支情况"
+            android:id="@+id/szqk"
+            android:layout_marginTop="500dp"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+</RelativeLayout>

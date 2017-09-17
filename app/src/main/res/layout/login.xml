@@ -46,7 +46,8 @@
         android:background="#5F94CD"
         android:layout_marginTop="10dp"
         android:textColor="#FFFFFF"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>

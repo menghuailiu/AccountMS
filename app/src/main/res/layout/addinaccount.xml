@@ -155,6 +155,10 @@
                 android:layout_below="@+id/txtInHandler"
                 android:gravity="top"
                 android:singleLine="false"
+               android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:background="@drawable/editviewborder"
+                android:layout_marginTop="15dp"
                 />
             </RelativeLayout>
         </LinearLayout>
@@ -175,15 +179,15 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/shap"
-                android:text="取消"
+                android:background="@drawable/shap2"
+                android:text="清空"
                 />
             <Button
                 android:id="@+id/btnInSave"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/btnInCancel"
-                android:background="@drawable/shap1"
+                android:background="@drawable/shap"
                 android:text="保存"
                 />
             <Button
@@ -193,6 +197,7 @@
                 android:layout_toLeftOf="@+id/btnInSave"
                 android:background="@drawable/shap2"
                 android:text="返回主页"
+                android:visibility="invisible"
                 />
             </RelativeLayout>
         </LinearLayout>

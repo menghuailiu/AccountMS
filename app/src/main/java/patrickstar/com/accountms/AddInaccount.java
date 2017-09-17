@@ -55,6 +55,11 @@ public class AddInaccount extends Activity {
                 showDialog(DATE_DIALOG_ID);//显示日期选择对话框
             }
         });
+        final Calendar c=Calendar.getInstance();//获取系统当前日期
+        mYear=c.get(Calendar.YEAR);//获取年份
+        mMonth=c.get(Calendar.MONTH);//获取月份
+        mDay=c.get(Calendar.DAY_OF_MONTH);//获取天数
+        updateDisplay();//显示当前系统时间*/
         btnInSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {//为"保存"按钮设置监听事件
@@ -87,7 +92,7 @@ public class AddInaccount extends Activity {
             public void onClick(View view) {
                 txtInMoney.setText("");//设置"金额"文本框为空
                 txtInMoney.setHint("0.00");//设置"金额"文本框设置提示
-                txtInTime.setText("");//设置"时间"文本框为空
+                /*txtInTime.setText("");//设置"时间"文本框为空*/
                 txtInTime.setHint("2011-01-01");//设置"时间"文本框设置提示
                 txtInHandler.setText("");//设置"付款方式"文本框为空
                 txtInMark.setText("");//设置"备注"文本框为空
@@ -100,14 +105,11 @@ public class AddInaccount extends Activity {
                 finish();
             }
         });
-        final Calendar c=Calendar.getInstance();//获取系统当前日期
-        mYear=c.get(Calendar.YEAR);//获取年份
-        mYear=c.get(Calendar.MONTH);//获取月份
-        mYear=c.get(Calendar.DAY_OF_MONTH);//获取天数
-        updateDisplay();//显示当前系统时间*/
+
     }
         private void updateDisplay()
     {
+        txtInTime.setText("");
         //显示设置的时间
         txtInTime.setText(new StringBuffer().append(mYear).append("-").append(mMonth +1).append("-").append(mDay));
     }

@@ -43,16 +43,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="0.94"
+        android:layout_weight="1"
         >
+
         <ListView
-            android:layout_width="match_parent"
-            android:layout_height="370dp"
             android:id="@+id/lvOutacountInfo"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            >
-        </ListView>
-        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarAlwaysDrawVerticalTrack="true"></ListView>
+      <!--  <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <Button
@@ -63,8 +62,10 @@
                 android:textSize="25px"
                 android:layout_alignParentBottom="true"
                 android:background="#5F94CD"
-                android:id="@+id/btnBack"/>
-        </RelativeLayout>
+                android:id="@+id/btnBack"
+                android:visibility="invisible"
+                />
+        </RelativeLayout>-->
 
     </LinearLayout>
 </LinearLayout>
