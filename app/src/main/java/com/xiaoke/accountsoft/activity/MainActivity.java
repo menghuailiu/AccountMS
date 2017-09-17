@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.text.TextPaint;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -119,11 +120,20 @@ public class MainActivity extends Activity {
         alertDialog.show();
 
 
+
        /* WindowManager wm = this.getWindowManager();
         int width = wm.getDefaultDisplay().getWidth();
-        int height = wm.getDefaultDisplay().getHeight();
-        TextView szqk=(TextView)findViewById(R.id.szqk);*/
+        int height = wm.getDefaultDisplay().getHeight();*/
+        TextView szqk=(TextView)findViewById(R.id.szqk);
+        TextPaint tp = szqk.getPaint();
+        tp.setFakeBoldText(true);
 
+        TextView tvin=(TextView)findViewById(R.id.etinaccount);
+        TextView tvout=(TextView)findViewById(R.id.etoutaccount);
+        TextView tvba=(TextView)findViewById(R.id.etbalance);
+        tvin.setText(income+"¥");
+        tvout.setText(outaccount+"¥");
+        tvba.setText(balance+"¥");
     }
 
 }

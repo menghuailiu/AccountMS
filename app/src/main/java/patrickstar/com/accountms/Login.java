@@ -94,7 +94,7 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(Login.this,"请输入正确的密码",Toast.LENGTH_SHORT).show();
                     }
                 }
-                txtlogin.setText("");                                   //清空密码文本框
+              //注释 罗  txtlogin.setText("");                                   //清空密码文本框
 
             }
         });

@@ -3,9 +3,11 @@ package patrickstar.com.accountms;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -39,6 +41,7 @@ public class AddInaccount extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addinaccount);
+
         txtInMoney=(EditText)findViewById(R.id.txtInMoney);//获取"金额"文本框
         txtInTime=(EditText)findViewById(R.id. txtInTime);//获取"时间"文本框
         txtInHandler=(EditText)findViewById(R.id.txtInHandler);//获取"付款方式"文本框
