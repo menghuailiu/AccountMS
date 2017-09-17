@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/outitem"
-    android:background="#fff"
+    android:background="@drawable/bgmain"
     >
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -31,15 +31,29 @@
             android:layout_width="50dp"
             android:layout_height="25dp"
             android:id="@+id/btnOutSave"
-            android:layout_alignParentRight="true"
             android:text="完成"
             android:textSize="18dp"
             android:textColor="#848484"
             android:background="#fff"
-            android:layout_marginTop="65px"
             style="?android:attr/borderlessButtonStyle"
-
-            />
+            android:layout_marginLeft="250dp"
+            android:layout_alignBottom="@+id/tv1"
+            android:layout_marginTop="65px"/>
+        <Button
+            android:id="@+id/btnOutCancel"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:background="#fff"
+            android:text="清空"
+            android:textColor="#848484"
+            android:textSize="18dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_alignBaseline="@+id/btnOutSave"
+            android:layout_alignBottom="@+id/btnOutSave"
+            android:layout_toRightOf="@+id/btnOutSave"
+            android:layout_toEndOf="@+id/btnOutSave"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp" />
     </RelativeLayout>
     <View
         android:layout_width="fill_parent"
@@ -72,8 +86,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:background="#fff"
+            android:layout_height="330dp"
             android:padding="10dp">
 
             <TextView
@@ -177,20 +190,7 @@
                 android:singleLine="false"
                 />
 
-            <Button
-                android:id="@+id/btnOutCancel"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:layout_alignEnd="@+id/txOutMark"
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/txOutMark"
-                android:layout_below="@+id/txOutMark"
-                android:background="#fff"
-                android:text="清空"
-                android:textColor="#848484"
-                android:textSize="18dp"
-                style="?android:attr/borderlessButtonStyle"
-                />
+
         </RelativeLayout>
 
     </LinearLayout>

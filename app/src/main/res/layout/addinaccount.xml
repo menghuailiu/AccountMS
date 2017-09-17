@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="@drawable/bgmain"
     >
   <LinearLayout
       android:layout_width="match_parent"
@@ -39,10 +39,21 @@
               style="?android:attr/borderlessButtonStyle"
               android:layout_width="50dp"
               android:layout_height="25dp"
-              android:layout_alignParentRight="true"
               android:layout_marginTop="65px"
               android:background="#fff"
               android:text="完成"
+              android:textColor="#848484"
+              android:textSize="18dp"
+              android:layout_marginLeft="250dp"/>
+          <Button
+              android:id="@+id/btnInCancel"
+              style="?android:attr/borderlessButtonStyle"
+              android:layout_width="50dp"
+              android:layout_height="25dp"
+              android:background="#fff"
+              android:text="清空"
+              android:layout_toRightOf="@+id/btnInSave"
+              android:layout_alignBottom="@+id/btnInSave"
               android:textColor="#848484"
               android:textSize="18dp" />
       </RelativeLayout>
@@ -62,136 +73,7 @@
           android:layout_marginRight="5dp"
           />
       </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:padding="10dp"
-            >
-            <TextView
-                android:layout_width="90dp"
-                android:id="@+id/tvInMoney"
-                android:textSize="20sp"
-                android:text="金 额:"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/txtInMoney"
-                android:layout_alignBottom="@+id/txtInMoney"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="16dp"
-                >
-            </TextView>
-            <EditText
-                android:id="@+id/txtInMoney"
-                android:layout_width="210dp"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/tvInMoney"
-                android:inputType="number"
-                android:numeric="integer"
-                android:maxLength="9"
-                android:hint="0.00"
-                />
-            <TextView
-                android:layout_width="90dp"
-                android:id="@+id/tvInTime"
-                android:textSize="20sp"
-                android:text="时 间:"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/txtInTime"
-                android:layout_alignBottom="@+id/txtInTime"
-                android:layout_toLeftOf="@+id/txtInMoney"
-                >
-            </TextView>
-            <EditText
-                android:id="@+id/txtInTime"
-                android:layout_width="210dp"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/tvInTime"
-                android:layout_below="@+id/txtInMoney"
-                android:inputType="datetime"
-                android:hint="2011-01-01"
-                />
-            <TextView
-                android:layout_width="90dp"
-                android:id="@+id/tvInType"
-                android:textSize="20sp"
-                android:text="类 别:"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/spInType"
-                android:layout_alignBottom="@+id/spInType"
-                android:layout_alignLeft="@+id/tvInTime"
-                >
-            </TextView>
-            <Spinner
-                android:id="@+id/spInType"
-                android:layout_width="210dp"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/tvInType"
-                android:layout_below="@+id/txtInTime"
-                android:entries="@array/type"
-                />
-            <TextView
-                android:layout_width="90dp"
-                android:id="@+id/tvInHandler"
-                android:textSize="20sp"
-                android:text="付款方式:"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/txtInHandler"
-                android:layout_alignBottom="@+id/txtInHandler"
-                android:layout_toLeftOf="@+id/spInType"
-                >
-            </TextView>
-            <EditText
-                android:id="@+id/txtInHandler"
-                android:layout_width="210dp"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/tvInHandler"
-                android:layout_below="@+id/spInType"
-                android:singleLine="false"
-                />
-            <TextView
-                android:layout_width="90dp"
-                android:id="@+id/tvInMark"
-                android:textSize="20sp"
-                android:text="备 注:"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/txtInMark"
-                android:layout_toLeftOf="@+id/txtInHandler"
-                >
-            </TextView>
-            <EditText
-                android:id="@+id/txtInMark"
-                android:layout_width="210dp"
-                android:layout_height="150dp"
-                android:layout_toRightOf="@+id/tvInMark"
-                android:layout_below="@+id/txtInHandler"
-                android:gravity="top"
-                android:singleLine="false"
-                android:inputType="textMultiLine"
-                android:scrollbars="vertical"
-                android:background="@drawable/editviewborder"
-                android:layout_marginTop="15dp"
-                />
-            <Button
-                android:id="@+id/btnInCancel"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@+id/txtInMark"
-                android:background="#fff"
-                android:text="清空"
-                android:textColor="#848484"
-                android:textSize="18dp"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_alignRight="@+id/txtInMark"
-                />
 
-        </RelativeLayout>
-        </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -214,4 +96,118 @@
                 />
             </RelativeLayout>
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tvInMoney"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtInMoney"
+                android:layout_alignBottom="@+id/txtInMoney"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="16dp"
+                android:text="金 额:"
+                android:textSize="20sp"></TextView>
+
+            <EditText
+                android:id="@+id/txtInMoney"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tvInMoney"
+                android:hint="0.00"
+                android:inputType="number"
+                android:maxLength="9"
+                android:numeric="integer" />
+
+            <TextView
+                android:id="@+id/tvInTime"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtInTime"
+                android:layout_alignBottom="@+id/txtInTime"
+                android:layout_toLeftOf="@+id/txtInMoney"
+                android:text="时 间:"
+                android:textSize="20sp"></TextView>
+
+            <EditText
+                android:id="@+id/txtInTime"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtInMoney"
+                android:layout_toRightOf="@+id/tvInTime"
+                android:hint="2011-01-01"
+                android:inputType="datetime" />
+
+            <TextView
+                android:id="@+id/tvInType"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/spInType"
+                android:layout_alignBottom="@+id/spInType"
+                android:layout_alignLeft="@+id/tvInTime"
+                android:text="类 别:"
+                android:textSize="20sp"></TextView>
+
+            <Spinner
+                android:id="@+id/spInType"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtInTime"
+                android:layout_toRightOf="@+id/tvInType"
+                android:entries="@array/type" />
+
+            <TextView
+                android:id="@+id/tvInHandler"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtInHandler"
+                android:layout_alignBottom="@+id/txtInHandler"
+                android:layout_toLeftOf="@+id/spInType"
+                android:text="付款方式:"
+                android:textSize="20sp"></TextView>
+
+            <EditText
+                android:id="@+id/txtInHandler"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spInType"
+                android:layout_toRightOf="@+id/tvInHandler"
+                android:singleLine="false" />
+
+            <TextView
+                android:id="@+id/tvInMark"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/txtInMark"
+                android:layout_toLeftOf="@+id/txtInHandler"
+                android:text="备 注:"
+                android:textSize="20sp"></TextView>
+
+            <EditText
+                android:id="@+id/txtInMark"
+                android:layout_width="210dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/txtInHandler"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/tvInMark"
+                android:background="@drawable/editviewborder"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:singleLine="false" />
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

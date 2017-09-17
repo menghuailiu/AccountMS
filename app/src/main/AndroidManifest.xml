@@ -26,6 +26,7 @@
         <activity android:name="com.xiaoke.accountsoft.activity.Accountflag" />
         <activity android:name=".fl_MainActivity"></activity>
         <activity android:name=".FlagActivity"></activity>
+        <activity android:name="com.xiaoke.accountsoft.activity.Revenue"></activity>
         <!--
             <activity android:name=".OutAccountInfo">
             <intent-filter>

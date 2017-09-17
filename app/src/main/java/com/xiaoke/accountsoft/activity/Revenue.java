@@ -2,6 +2,7 @@ package com.xiaoke.accountsoft.activity;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextPaint;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,12 +23,14 @@ import patrickstar.com.accountms.db.DBOutAccount;
 /**
  * 注解：收支情况后台，对应的布局文件是revenue.xml文件
  */
-public class Revenue extends Activity {
+public class Revenue extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.revenue);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
           //添加代码  罗  用于显示用户总收入，总支出，余额
@@ -73,5 +77,13 @@ public class Revenue extends Activity {
         }
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, com.xiaoke.accountsoft.activity.MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }
