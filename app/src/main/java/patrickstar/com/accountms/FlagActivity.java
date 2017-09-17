@@ -60,6 +60,9 @@ public class FlagActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(dbFlag.deleteById(Long.parseLong(id))){
                     Toast.makeText(FlagActivity.this,"【数据】删除成功！",Toast.LENGTH_SHORT).show();
+                    finish();
+                    Intent intent1 = new Intent(FlagActivity.this,fl_MainActivity.class);
+                    startActivity(intent1);
                 }
                 else{
                     Toast.makeText(FlagActivity.this,"【数据】删除失败！",Toast.LENGTH_SHORT).show();

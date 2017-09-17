@@ -78,11 +78,11 @@
                 android:id="@+id/txtFlag"
                 android:layout_width="280dp"
                 android:layout_height="300dp"
+                android:background="#efeded"
                 android:layout_below="@id/tvFlag"
                 android:gravity="top"
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
-                android:background="#fff"
                 android:layout_marginLeft="50dp"/>
         </RelativeLayout>
     </LinearLayout>
@@ -109,7 +109,8 @@
                 android:maxLength="200"
 
                 android:text="删除"
-                android:layout_alignParentTop="true">
+                android:layout_alignParentTop="true"
+                android:gravity="right">
 
             </Button>
 
