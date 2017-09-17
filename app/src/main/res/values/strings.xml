@@ -16,4 +16,5 @@
     </string-array>
     <string name="title_activity_detail_out_mess">DetailOutMess</string>
     <string name="title_activity_accountflag">Accountflag</string>
+    <string name="title_activity_revenue">Revenue</string>
 </resources>
