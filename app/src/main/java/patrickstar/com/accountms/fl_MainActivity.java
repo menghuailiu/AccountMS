@@ -56,10 +56,10 @@ public class fl_MainActivity extends AppCompatActivity {
 
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setCustomView(R.layout.action_bar);
-        actionBar.show();
+        /*actionBar.setCustomView(R.layout.action_bar);
+        actionBar.show();*/
         if (actionBar != null) {
-            actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+           // actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
             actionBar.setDisplayHomeAsUpEnabled(true);
             //actionBar.setHomeAsUpIndicator(R.drawable.notify);
 
@@ -84,8 +84,6 @@ public class fl_MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(fl_MainActivity.this, android.R.layout.simple_expandable_list_item_1, tbsize);
         listView.setAdapter(adapter);
 
-       /* myAdapter = new MyAdapter(this, iData, 0);
-        listView.setAdapter(myAdapter);*/
 
         zhichu.setOnClickListener(new ZhichuListen());
 
