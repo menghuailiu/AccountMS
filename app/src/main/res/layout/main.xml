@@ -23,10 +23,65 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="收支情况"
+            android:text="收支情况:"
             android:id="@+id/szqk"
-            android:layout_marginTop="500dp"
-            android:textSize="30dp"
+            android:layout_marginTop="520dp"
+            android:textSize="16dp"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="总  收  入:"
+            android:id="@+id/txinaccount"
+            android:textSize="16dp"
+            android:layout_marginTop="550dp"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/etinaccount"
+            android:text=""
+            android:textSize="16dp"
+            android:layout_marginTop="550dp"
+            android:layout_marginLeft="100dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="总  支  出:"
+            android:id="@+id/txoutaccount"
+            android:textSize="16dp"
+            android:layout_marginTop="580dp"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/etoutaccount"
+            android:text=""
+            android:textSize="16dp"
+            android:layout_marginTop="580dp"
+            android:layout_marginLeft="100dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="余       额:"
+            android:id="@+id/txbalance"
+            android:textSize="16dp"
+            android:layout_marginTop="610dp"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/etbalance"
+            android:text=""
+            android:textSize="16dp"
+            android:layout_marginTop="610dp"
+            android:layout_marginLeft="100dp"
             />
     </RelativeLayout>
 </RelativeLayout>
