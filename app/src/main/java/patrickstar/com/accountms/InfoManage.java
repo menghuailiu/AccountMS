@@ -2,17 +2,25 @@ package patrickstar.com.accountms;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.Notification;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 import patrickstar.com.accountms.db.DBInAcount;
 import patrickstar.com.accountms.db.DBOutAccount;
@@ -23,7 +31,7 @@ import patrickstar.com.accountms.model.tb_outaccount;
  * Created by ios17 on 17/9/14.
  */
 
-public class InfoManage extends Activity {
+public class InfoManage extends AppCompatActivity {
     protected static final int DATE_DIALOG_ID = 0;//创建日期对话框常量
     TextView tvtitle, textView;//创建两个TextView对象
     EditText txtMoney, txtTime, txtHA, txtMark;//创建四个EditText对象
@@ -42,6 +50,8 @@ public class InfoManage extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infomanage);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         btninoutBack = (Button) findViewById(R.id.btnInOutBack);//获取返回按钮
         final DBOutAccount outaccountDAO = new DBOutAccount(InfoManage.this);//创建DBOutAccount对象
         final DBInAcount inAcount = new DBInAcount(InfoManage.this);
@@ -56,6 +66,17 @@ public class InfoManage extends Activity {
         btnDel = (Button) findViewById(R.id.btnInOutDelete);//获取"删除"按钮
         Intent intent = getIntent();//创建Intent对象
         info = intent.getStringExtra("info");
+        txtTime.setOnClickListener(new View.OnClickListener() {//为"时间"文本框设置单击监听事件
+            @Override
+            public void onClick(View view) {
+                showDialog(DATE_DIALOG_ID);//显示日期选择对话框
+            }
+        });
+        final Calendar c=Calendar.getInstance();//获取系统当前日期
+        mYear=c.get(Calendar.YEAR);//获取年份
+        mMonth=c.get(Calendar.MONTH);//获取月份
+        mDay=c.get(Calendar.DAY_OF_MONTH);//获取天数
+        updateDisplay();//显示当前系统时间*/
 
 
         strInfos = info.split(",");
@@ -165,5 +186,37 @@ public class InfoManage extends Activity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, fl_MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+    private void updateDisplay()
+    {
+        txtTime.setText("");
+        //显示设置的时间
+        txtTime.setText(new StringBuffer().append(mYear).append("-").append(mMonth +1).append("-").append(mDay));
+    }
+    protected Dialog onCreateDialog(int id)
+    {
+        switch (id)
+        {
+            case DATE_DIALOG_ID:
+                return new DatePickerDialog(this,mDateSetListener,mYear,mMonth,mDay);
+        }
+        return null;
+    }
+    private  DatePickerDialog.OnDateSetListener mDateSetListener=new DatePickerDialog.OnDateSetListener()
+    {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+        {
+            mYear=year;//为年份赋值
+            mMonth=monthOfYear;//为月份赋值
+            mDay=dayOfMonth;//为天赋值
+            updateDisplay();//显示设置的日期
+        }
+    };
 
 }

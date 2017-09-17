@@ -71,8 +71,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/tvInOutTime"
                 android:layout_below="@+id/txtInOutMoney"
-                android:inputType="datetime"
                 android:hint="2011-01-01"
+                android:inputType="datetime"
 
                 />
             <TextView

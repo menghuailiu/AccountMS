@@ -21,6 +21,7 @@
             style="@style/textTitle"
             android:gravity="center_vertical|left"
             android:layout_toRightOf="@+id/imageView1"/>
+
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"

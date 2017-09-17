@@ -6,6 +6,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -25,7 +27,7 @@ import patrickstar.com.accountms.db.DBInAcount;
  * ff mhldfddf
  */
 
-public class AddInaccount extends Activity {
+public class AddInaccount extends AppCompatActivity{
     protected  static final int DATE_DIALOG_ID=0;//创建日期对话框常量
     EditText txtInMoney,txtInTime,txtInHandler,txtInMark;//创建四个EditText对象
     Spinner spInType;//创建Spinner对象
@@ -41,6 +43,10 @@ public class AddInaccount extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addinaccount);
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         txtInMoney=(EditText)findViewById(R.id.txtInMoney);//获取"金额"文本框
         txtInTime=(EditText)findViewById(R.id. txtInTime);//获取"时间"文本框
@@ -135,5 +141,14 @@ public class AddInaccount extends Activity {
            updateDisplay();//显示设置的日期
        }
     };
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, com.xiaoke.accountsoft.activity.MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

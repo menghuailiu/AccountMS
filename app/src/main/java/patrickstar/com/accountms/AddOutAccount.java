@@ -7,7 +7,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -26,7 +30,7 @@ import patrickstar.com.accountms.model.tb_outaccount;
  * 添加支出记录
  */
 
-public class AddOutAccount extends Activity {
+public class AddOutAccount extends AppCompatActivity {
     protected  static final int DATE_DIALOG_ID=0;//创建日期对话框常量
     EditText txOutMoney,txtOutTime,txOutAddress,txOutMark;//创建四个EditText对象
     Spinner spOutType;//创建Spinner对象
@@ -40,6 +44,9 @@ public class AddOutAccount extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addoutaccount);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         txOutMoney=(EditText)findViewById(R.id.txOutMoney);//获取"金额"文本框
         txtOutTime=(EditText)findViewById(R.id.txtOutTime);//获取"时间"文本框
         txOutAddress=(EditText)findViewById(R.id.txOutAddress);//获取"付款方式"文本框
@@ -134,6 +141,14 @@ public class AddOutAccount extends Activity {
                 return new DatePickerDialog(this,mDateSetListener,mYear,mMonth,mDay);
         }
         return null;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, com.xiaoke.accountsoft.activity.MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
     }
 
 
