@@ -33,7 +33,7 @@
     </RelativeLayout>
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="700dp"
+        android:layout_height="600dp"
         android:orientation="vertical"
         android:layout_weight="3">
 
@@ -59,14 +59,15 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:padding="5dp">
+
             <TextView
-                android:layout_width="350dp"
                 android:id="@+id/tvFlag"
-                android:textSize="20sp"
-                android:text="请输入内容，最多输入200字"
-                android:textColor="#8C6931"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_height="wrap_content" />
+                android:text="请输入内容，最多输入200字"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp" />
             <EditText
                 android:id="@+id/txtFlag"
                 android:layout_width="350dp"
@@ -93,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
-                android:text="取消" />
+                android:text="取消"
+                android:background="@drawable/shap1"/>
 
             <Button
                 android:id="@+id/btnflagSave"
@@ -101,15 +103,9 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/btnflagCancel"
                 android:maxLength="200"
-                android:text="保存" />
-            <Button
-                android:id="@+id/btnflagSave1"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:background="@drawable/shap1"
-                android:text="主页">
+                android:text="保存"
+                android:background="@drawable/shap1"/>
 
-            </Button>
 
         </RelativeLayout>
 
