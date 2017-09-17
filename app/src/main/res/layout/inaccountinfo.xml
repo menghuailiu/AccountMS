@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:weightSum="1"
+    android:background="@drawable/bgmain"
     >
     <RelativeLayout
         android:layout_width="wrap_content"
