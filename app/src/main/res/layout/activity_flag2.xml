@@ -82,7 +82,7 @@
                 android:gravity="top"
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
-                android:background="@drawable/editviewborder"
+                android:background="#fff"
                 android:layout_marginLeft="50dp"/>
         </RelativeLayout>
     </LinearLayout>
