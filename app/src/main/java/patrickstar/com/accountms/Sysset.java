@@ -1,8 +1,11 @@
 package patrickstar.com.accountms;
 
 
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +28,8 @@ public class Sysset extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sysset);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         txtpwd=(EditText)findViewById(R.id.txtPwd);                     //获取密码文本框
         btnSet=(Button)findViewById(R.id.btnSet);                       //获取"设置"按钮
@@ -69,4 +74,12 @@ public class Sysset extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, com.xiaoke.accountsoft.activity.MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
 }
