@@ -36,7 +36,7 @@ public class Accountflag extends AppCompatActivity {
         txtFlag = (EditText)findViewById(R.id.txtFlag);
         btnflagCanceButton = (Button)findViewById(R.id.btnflagCancel);
         btnflagSaveButton = (Button)findViewById(R.id.btnflagSave);
-        btnflagsavebtn = (Button)findViewById(R.id.btnflagSave1);//返回主页的按钮
+     //   btnflagsavebtn = (Button)findViewById(R.id.btnflagSave1);//返回主页的按钮
 
 
         //点击保存时，保存输入信息
@@ -78,14 +78,14 @@ public class Accountflag extends AppCompatActivity {
 
             }
         });
-
+/**
         //点击主页时，关闭当前Activity，返回主界面
         btnflagsavebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();//关闭当前Activity
             }
-        });
+        });*/
 
     }
     @Override
