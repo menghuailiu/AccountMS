@@ -35,7 +35,7 @@
     </RelativeLayout>
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="500dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:layout_weight="3">
 
@@ -61,11 +61,14 @@
                 android:layout_height="wrap_content" />
             <EditText
                 android:id="@+id/txtFlag"
-                android:layout_width="350dp"
-                android:layout_height="350dp"
+                android:layout_width="280dp"
+                android:layout_height="300dp"
                 android:layout_below="@id/tvFlag"
                 android:gravity="top"
-                android:singleLine="false"/>
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:background="@drawable/editviewborder"
+                android:layout_marginLeft="50dp"/>
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout

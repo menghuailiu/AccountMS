@@ -11,15 +11,14 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/imageView1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            style="@style/titleImage"
             android:src="@drawable/addout"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="新增支出"
-            android:textSize="26px"
+            style="@style/textTitle"
             android:gravity="center_vertical|left"
             android:layout_toRightOf="@+id/imageView1"/>
     </RelativeLayout>
@@ -29,7 +28,7 @@
         android:layout_height="2dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="#5bf" />
+        android:background="#e7e4e5" />
     <View
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"

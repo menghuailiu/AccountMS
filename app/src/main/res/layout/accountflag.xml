@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="45dp"
+            style="@style/titleImage"
             android:src="@drawable/shouzhibianqian"
             android:id="@+id/image1"/>
         <TextView
@@ -20,14 +19,14 @@
             android:id="@+id/textview1"
             android:text="支出便签"
             android:layout_toRightOf="@id/image1"
-            android:textSize="20dp"/>
+            style="@style/textTitle"/>
         <TextView
             android:id="@+id/textview2"
             android:layout_width="fill_parent"
             android:layout_height="5px"
             android:layout_below="@id/image1"
             android:layout_marginTop="5px"
-            android:background="@android:color/darker_gray"
+            android:background="#e7e4e5"
 
             />
 
