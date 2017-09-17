@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/denglu"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -24,8 +24,8 @@
         <activity android:name=".OutAccountInfo" />
         <activity android:name=".Sysset" />
         <activity android:name="com.xiaoke.accountsoft.activity.Accountflag" />
-        <activity android:name=".fl_MainActivity" />
-        <activity android:name=".FlagActivity" />
+        <activity android:name=".fl_MainActivity"></activity>
+        <activity android:name=".FlagActivity"></activity>
         <!--
             <activity android:name=".OutAccountInfo">
             <intent-filter>
@@ -77,14 +77,8 @@
             </intent-filter>
         </activity>
         -->
-        <!--
-        <activity android:name=".FlagActivity" />
-        <activity android:name=".FlagActivity"></activity>
-        -->
-        <activity
-            android:name="com.xiaoke.accountsoft.activity.Revenue"
-            android:label="@string/title_activity_revenue"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <!--<activity android:name=".FlagActivity" />
+        <activity android:name=".FlagActivity"></activity>-->
     </application>
 
 </manifest>

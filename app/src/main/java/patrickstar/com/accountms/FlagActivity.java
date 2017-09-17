@@ -1,8 +1,10 @@
 package patrickstar.com.accountms;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +24,8 @@ public class FlagActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flag2);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent=getIntent();//创建Intent对象
         id= intent.getStringExtra("info");
@@ -66,4 +70,13 @@ public class FlagActivity extends AppCompatActivity {
 
         //记录类型oast.makeText(InfoManage.this,"【数据】修改成功！", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, com.xiaoke.accountsoft.activity.MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
 }
