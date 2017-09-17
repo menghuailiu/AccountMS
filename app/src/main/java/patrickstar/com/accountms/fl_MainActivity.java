@@ -29,7 +29,6 @@ import patrickstar.com.accountms.model.tb_flag;
 import patrickstar.com.accountms.model.tb_inaccount;
 import patrickstar.com.accountms.model.tb_outaccount;
 
-
 public class fl_MainActivity extends AppCompatActivity {
     private Button edit;
     private ListView listView;
