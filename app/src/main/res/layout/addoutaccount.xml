@@ -5,22 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/outitem"
+    android:background="#fff"
     >
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#fff">
         <ImageView
             android:id="@+id/imageView1"
             style="@style/titleImage"
             android:src="@drawable/addout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
             />
         <TextView
+            android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="新增支出"
             style="@style/textTitle"
             android:gravity="center_vertical|left"
             android:layout_toRightOf="@+id/imageView1"/>
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:id="@+id/btnOutSave"
+            android:layout_alignParentRight="true"
+            android:text="完成"
+            android:textSize="18dp"
+            android:textColor="#848484"
+            android:background="#fff"
+            android:layout_marginTop="65px"
+            style="?android:attr/borderlessButtonStyle"
+
+            />
     </RelativeLayout>
     <View
         android:layout_width="fill_parent"
@@ -50,69 +69,70 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         >
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="324dp"
-            android:padding="10dp"
-            android:background="#1000"
-            >
+            android:layout_height="400dp"
+            android:background="#fff"
+            android:padding="10dp">
+
             <TextView
+                android:id="@+id/tvOuMoney"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvOuMoney"
-                android:textSize="20sp"
-                android:text="金 额:"
                 android:layout_alignBaseline="@+id/txOutMoney"
                 android:layout_alignBottom="@+id/txOutMoney"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="16dp"
-                />
+                android:text="金 额:"
+                android:textSize="20sp" />
+
             <EditText
+                android:id="@+id/txOutMoney"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/txOutMoney"
                 android:layout_toRightOf="@id/tvOuMoney"
+                android:hint="0.00"
                 android:inputType="number"
-                android:numeric="integer"
                 android:maxLength="9"
-                android:hint="0.00"/>
+                android:numeric="integer" />
+
             <TextView
+                android:id="@+id/tvOutTime"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvOutTime"
-                android:textSize="20sp"
-                android:text="时间:"
                 android:layout_alignBaseline="@+id/txtOutTime"
                 android:layout_alignBottom="@+id/txtOutTime"
                 android:layout_toLeftOf="@+id/txOutMoney"
-                />
+                android:text="时间:"
+                android:textSize="20sp" />
+
             <EditText
+                android:id="@+id/txtOutTime"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtOutTime"
-                android:inputType="datetime"
-                android:hint="2011-01-01"
-                android:layout_toRightOf="@+id/tvOutTime"
                 android:layout_below="@+id/txOutMoney"
-                />
+                android:layout_toRightOf="@+id/tvOutTime"
+                android:hint="2011-01-01"
+                android:inputType="datetime" />
+
             <TextView
+                android:id="@+id/tvOutType"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvOutType"
-                android:textSize="20sp"
-                android:text="类别:"
                 android:layout_alignBaseline="@+id/spOutType"
                 android:layout_alignBottom="@+id/spOutType"
                 android:layout_alignLeft="@+id/tvOutTime"
-                />
+                android:text="类别:"
+                android:textSize="20sp" />
+
             <Spinner
+                android:id="@id/spOutType"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
-                android:id="@id/spOutType"
-                android:layout_toRightOf="@id/tvOutType"
                 android:layout_below="@id/txtOutTime"
-                android:entries="@array/intype"
-                >
+                android:layout_toRightOf="@id/tvOutType"
+                android:entries="@array/intype">
 
             </Spinner>
 
@@ -125,36 +145,52 @@
                 android:layout_toLeftOf="@+id/spOutType"
                 android:text="地点："
                 android:textSize="20sp" />
+
             <EditText
+                android:id="@+id/txOutAddress"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/txOutAddress"
-                android:layout_toRightOf="@+id/tvOutAddress"
                 android:layout_below="@+id/spOutType"
-                android:singleLine="false"
-                />
+                android:layout_toRightOf="@+id/tvOutAddress"
+                android:singleLine="false" />
+
             <TextView
+                android:id="@+id/tvOutMark"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvOutMark"
-                android:textSize="20sp"
-                android:text="备注"
-               android:layout_alignTop="@+id/txOutMark"
+                android:layout_alignTop="@+id/txOutMark"
                 android:layout_toLeftOf="@+id/txOutAddress"
+                android:text="备注"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/txOutMark"
+                android:layout_width="210dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/tvOutAddress"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/tvOutMark"
+                android:background="#efeded"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:singleLine="false"
                 />
-                <EditText
-                    android:id="@+id/txOutMark"
-                    android:layout_width="210dp"
-                    android:layout_height="120dp"
-                    android:layout_toRightOf="@id/tvOutMark"
-                    android:gravity="top"
-                    android:singleLine="false"
-                    android:layout_below="@+id/tvOutAddress"
-                    android:inputType="textMultiLine"
-                    android:scrollbars="vertical"
-                    android:background="@drawable/editviewborder"
-                    android:layout_marginTop="15dp"
-                    />
+
+            <Button
+                android:id="@+id/btnOutCancel"
+                android:layout_width="60dp"
+                android:layout_height="5dp"
+                android:layout_alignEnd="@+id/txOutMark"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/txOutMark"
+                android:layout_below="@+id/txOutMark"
+                android:background="#fff"
+                android:text="清空"
+                android:textColor="#848484"
+                android:textSize="18dp"
+                style="?android:attr/borderlessButtonStyle"
+                />
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout
@@ -166,8 +202,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="27dp"
-            android:padding="10px"
-
+            android:padding="5px"
             android:layout_weight="0.52">
             <Button
                 android:layout_width="80dp"
@@ -180,26 +215,8 @@
                 android:text="返回"
                 android:visibility="invisible"
                 />
-            <Button
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnOutCancel"
-                android:layout_toLeftOf="@id/btnOutBack"
-                android:layout_marginLeft="10dp"
-                android:text="清空"
-                android:background="@drawable/shap2"
-                android:textColor="#fff"
 
-                />
-            <Button
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnOutSave"
-                android:layout_toLeftOf="@id/btnOutCancel"
-                android:text="保存"
-                android:textColor="#fff"
-                android:background="@drawable/shap"
-                />
+
         </RelativeLayout>
 
     </LinearLayout>
