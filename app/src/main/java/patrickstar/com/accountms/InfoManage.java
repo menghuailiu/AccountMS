@@ -36,7 +36,7 @@ public class InfoManage extends AppCompatActivity {
     TextView tvtitle, textView;//创建两个TextView对象
     EditText txtMoney, txtTime, txtHA, txtMark;//创建四个EditText对象
     Spinner spType;//创建Spinner对象
-    Button btnEdit, btnDel, btninoutBack;//创建两个Button对象
+    Button btnEdit, btnDel;//创建两个Button对象
     String[] strInfos;//定义字符串数组
     String strid, strType;//定义两个字符串变量，分别用来记录信息编号和管理类型
     private int mYear;//年
@@ -52,7 +52,7 @@ public class InfoManage extends AppCompatActivity {
         setContentView(R.layout.infomanage);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        btninoutBack = (Button) findViewById(R.id.btnInOutBack);//获取返回按钮
+        //btninoutBack = (Button) findViewById(R.id.btnInOutBack);//获取返回按钮
         final DBOutAccount outaccountDAO = new DBOutAccount(InfoManage.this);//创建DBOutAccount对象
         final DBInAcount inAcount = new DBInAcount(InfoManage.this);
         tvtitle = (TextView) findViewById(R.id.inouttitle);//获取标题标签对象
@@ -177,12 +177,12 @@ public class InfoManage extends AppCompatActivity {
 
             }
         });
-        btninoutBack.setOnClickListener(new View.OnClickListener() {
+       /* btninoutBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
 
     }
 
