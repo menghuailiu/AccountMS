@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     >
   <LinearLayout
       android:layout_width="match_parent"
@@ -21,14 +22,27 @@
 
           />
       <TextView
-          android:layout_width="match_parent"
+          android:layout_width="250dp"
           android:layout_height="40dp"
+          android:layout_marginLeft="10px"
           android:text="新增收入"
           style="@style/textTitle"
-          android:layout_marginLeft="45dp"
+          android:id="@+id/addtv"
           android:gravity="center_vertical|left"
-          android:layout_toRightOf="@+id/imageView1"
-          />
+          android:layout_alignBottom="@+id/image"
+          android:layout_toRightOf="@+id/image"
+          android:layout_toEndOf="@+id/image" />
+          <Button
+              android:id="@+id/btnInSave"
+              android:layout_width="80dp"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@+id/addtv"
+              android:layout_alignParentRight="true"
+              android:textSize="18dp"
+              android:background="#fff"
+              android:text="保存"
+              b
+              />
       </RelativeLayout>
       <View
           android:layout_width="fill_parent"
@@ -176,24 +190,16 @@
                 android:id="@+id/btnInCancel"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="10dp"
                 android:background="@drawable/shap2"
                 android:text="清空"
-                />
-            <Button
-                android:id="@+id/btnInSave"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/btnInCancel"
-                android:background="@drawable/shap"
-                android:text="保存"
-                />
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
             <Button
                 android:id="@+id/btnReturn"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/btnInSave"
                 android:background="@drawable/shap2"
                 android:text="返回主页"
                 android:visibility="invisible"
