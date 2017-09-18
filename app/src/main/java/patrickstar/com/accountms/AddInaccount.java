@@ -3,9 +3,13 @@ package patrickstar.com.accountms;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -23,7 +27,7 @@ import patrickstar.com.accountms.db.DBInAcount;
  * ff mhldfddf
  */
 
-public class AddInaccount extends Activity {
+public class AddInaccount extends AppCompatActivity{
     protected  static final int DATE_DIALOG_ID=0;//创建日期对话框常量
     EditText txtInMoney,txtInTime,txtInHandler,txtInMark;//创建四个EditText对象
     Spinner spInType;//创建Spinner对象
@@ -39,6 +43,11 @@ public class AddInaccount extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addinaccount);
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
         txtInMoney=(EditText)findViewById(R.id.txtInMoney);//获取"金额"文本框
         txtInTime=(EditText)findViewById(R.id. txtInTime);//获取"时间"文本框
         txtInHandler=(EditText)findViewById(R.id.txtInHandler);//获取"付款方式"文本框
@@ -55,6 +64,11 @@ public class AddInaccount extends Activity {
                 showDialog(DATE_DIALOG_ID);//显示日期选择对话框
             }
         });
+        final Calendar c=Calendar.getInstance();//获取系统当前日期
+        mYear=c.get(Calendar.YEAR);//获取年份
+        mMonth=c.get(Calendar.MONTH);//获取月份
+        mDay=c.get(Calendar.DAY_OF_MONTH);//获取天数
+        updateDisplay();//显示当前系统时间*/
         btnInSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {//为"保存"按钮设置监听事件
@@ -87,7 +101,7 @@ public class AddInaccount extends Activity {
             public void onClick(View view) {
                 txtInMoney.setText("");//设置"金额"文本框为空
                 txtInMoney.setHint("0.00");//设置"金额"文本框设置提示
-                txtInTime.setText("");//设置"时间"文本框为空
+                /*txtInTime.setText("");//设置"时间"文本框为空*/
                 txtInTime.setHint("2011-01-01");//设置"时间"文本框设置提示
                 txtInHandler.setText("");//设置"付款方式"文本框为空
                 txtInMark.setText("");//设置"备注"文本框为空
@@ -100,14 +114,11 @@ public class AddInaccount extends Activity {
                 finish();
             }
         });
-        final Calendar c=Calendar.getInstance();//获取系统当前日期
-        mYear=c.get(Calendar.YEAR);//获取年份
-        mYear=c.get(Calendar.MONTH);//获取月份
-        mYear=c.get(Calendar.DAY_OF_MONTH);//获取天数
-        updateDisplay();//显示当前系统时间*/
+
     }
         private void updateDisplay()
     {
+        txtInTime.setText("");
         //显示设置的时间
         txtInTime.setText(new StringBuffer().append(mYear).append("-").append(mMonth +1).append("-").append(mDay));
     }
@@ -130,5 +141,14 @@ public class AddInaccount extends Activity {
            updateDisplay();//显示设置的日期
        }
     };
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, com.xiaoke.accountsoft.activity.MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

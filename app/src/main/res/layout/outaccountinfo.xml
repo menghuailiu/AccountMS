@@ -5,23 +5,27 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:weightSum="1"
-    android:id="@+id/itemInfo">
+    android:id="@+id/itemInfo"
+    android:background="@drawable/bgmain">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/imageView1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            style="@style/titleImage"
             android:src="@drawable/addout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="我的支出"
-            android:textSize="26px"
+            style="@style/textTitle"
             android:gravity="center_vertical|left"
             android:layout_toRightOf="@+id/imageView1"/>
+
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,23 +40,22 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="30dp"
-            android:background="#5F94CD" />
+            android:background="#e7e4e5" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/lineOut2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="0.94"
+        android:layout_weight="1"
         >
+
         <ListView
-            android:layout_width="match_parent"
-            android:layout_height="370dp"
             android:id="@+id/lvOutacountInfo"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            >
-        </ListView>
-        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarAlwaysDrawVerticalTrack="true"></ListView>
+      <!--  <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <Button
@@ -63,8 +66,10 @@
                 android:textSize="25px"
                 android:layout_alignParentBottom="true"
                 android:background="#5F94CD"
-                android:id="@+id/btnBack"/>
-        </RelativeLayout>
+                android:id="@+id/btnBack"
+                android:visibility="invisible"
+                />
+        </RelativeLayout>-->
 
     </LinearLayout>
 </LinearLayout>

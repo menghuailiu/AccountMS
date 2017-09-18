@@ -4,38 +4,73 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:id="@+id/itemflag">
+    android:id="@+id/itemflag"
+    android:background="@drawable/bgmain">
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
+
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:src="@drawable/shouzhibianqian"
-            android:id="@+id/image1"/>
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:id="@+id/textview1"
-            android:text="支出便签"
-            android:layout_toRightOf="@id/image1"
-            android:textSize="50px"/>
+            android:id="@+id/image1"
+            style="@style/titleImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/shouzhibianqian" />
 
         <TextView
+            android:id="@+id/textview1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toEndOf="@+id/image1"
+            android:layout_toRightOf="@+id/image1"
+            android:gravity="center_vertical|left"
+            android:text="支出便签"
+            android:textSize="20dp" />
+        <Button
+            android:id="@+id/btnflagSave"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="65px"
+            android:background="#fff"
+            android:text="完成"
+            android:textColor="#848484"
+            android:textSize="18dp"/>
+        <Button
+            android:id="@+id/btnflagCancel"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:text="清除"
+            android:background="#fff"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="#848484"
+            android:textSize="18dp"
+            android:layout_toRightOf="@+id/btnflagSave"
+
+            android:layout_alignBottom="@+id/btnflagSave"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+
+    <TextView
             android:id="@+id/textview2"
             android:layout_width="fill_parent"
             android:layout_height="5px"
             android:layout_below="@id/image1"
             android:layout_marginTop="5px"
-            android:background="@android:color/darker_gray"
+            android:background="#e7e4e5"
 
             />
 
-    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="500dp"
+        android:layout_height="600dp"
         android:orientation="vertical"
         android:layout_weight="3">
 
@@ -45,8 +80,8 @@
 
             android:layout_gravity="center"
             android:gravity="center_horizontal"
-            android:text="新增便签"
-            android:textColor="#ffffff"
+
+            android:textColor="#cecccc"
             android:textSize="35sp"
             android:textStyle="bold"
             android:layout_height="40dp"/>
@@ -61,20 +96,22 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:padding="5dp">
+
             <TextView
-                android:layout_width="350dp"
                 android:id="@+id/tvFlag"
-                android:textSize="20sp"
-                android:text="请输入内容，最多输入200字"
-                android:textColor="#8C6931"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_height="wrap_content" />
+                android:text="请输入内容，最多输入200字"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp" />
             <EditText
                 android:id="@+id/txtFlag"
-                android:layout_width="350dp"
+                android:layout_width="400dp"
                 android:layout_height="350dp"
                 android:layout_below="@id/tvFlag"
                 android:gravity="top"
+
                 android:singleLine="false"/>
         </RelativeLayout>
     </LinearLayout>
@@ -87,25 +124,12 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:padding="10dp">
+            android:padding="10dp"
+            >
 
-            <Button
-                android:id="@+id/btnflagCancel"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="10dp"
-                android:text="取消" />
 
-            <Button
-                android:id="@+id/btnflagSave"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/btnflagCancel"
-                android:maxLength="200"
-                android:text="保存">
 
-            </Button>
+
 
         </RelativeLayout>
 

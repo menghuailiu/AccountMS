@@ -1,6 +1,8 @@
 package patrickstar.com.accountms.db;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -109,7 +111,7 @@ public class DBInAcount {
         {
             bo=false;
         }
-        return false;
+        return bo;
     }
 
 
@@ -127,17 +129,21 @@ public class DBInAcount {
         {
             bo=false;
         }
-        return false;
+        return bo;
     }
 
     /**
-     * 获取最大数据
+     * 获取最大id
      * @return
      */
     public long getMax(){
     long g=0;
     try {
-        g=inaccountDao.loadAll().size();
+        List<tb_inaccount> tb=inaccountDao.loadAll();
+        int i=tb.size();
+        tb_inaccount tbi=tb.get(i-1);
+        g=tbi.getId();
+
     }catch (Exception e){return 0;}
     return g;
     }
@@ -163,5 +169,16 @@ public class DBInAcount {
         return inaccountDao.loadAll().size();
     }
 
-
+    /**
+     * 返回所有支出
+     * @return long类型的支出
+     */
+    public long sum(){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor=db.rawQuery("select sum(money) from tb_inaccount",null);
+        while (cursor.moveToLast()){
+            return cursor.getInt(0);
+        }
+        return 0;
+    }
 }

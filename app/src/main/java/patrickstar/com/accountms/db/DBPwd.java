@@ -110,6 +110,10 @@ public class DBPwd {
         return pwd;
     }
 
+    /**
+     * 获取密码对象
+     * @return 密码对象
+     */
     public tb_pwd getpwd()
     {
         tb_pwd p=new tb_pwd();

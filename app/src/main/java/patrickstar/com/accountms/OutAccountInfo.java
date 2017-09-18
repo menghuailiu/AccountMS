@@ -1,8 +1,11 @@
 package patrickstar.com.accountms;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,7 +25,7 @@ import patrickstar.com.accountms.model.tb_outaccount;
  * 显示所有支出信息
  */
 
-public class OutAccountInfo extends Activity {
+public class OutAccountInfo extends AppCompatActivity {
     public static final String FLAG="id";//定义一个常量，作为请求码
     ListView lvOutinfo;
     String strType="";//创建字符串    ，记录管理类型
@@ -32,8 +35,11 @@ public class OutAccountInfo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.outaccountinfo);
 
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
        lvOutinfo=(ListView)findViewById(R.id.lvOutacountInfo);//获取布局文件中的listView
-        btnback=(Button)findViewById(R.id.btnBack);
+      //  btnback=(Button)findViewById(R.id.btnBack);
       //  ShowInfo(R.id.btninfo);
 
         String[] strInfo=null;
@@ -47,7 +53,8 @@ public class OutAccountInfo extends Activity {
         int m=0;
         for(tb_outaccount tboutaccount:listinfo){
             //将收入相关信息组合成一个字符串，存储到字符串数组的相应位置
-            strInfo[m]=tboutaccount.getId()+"|"+tboutaccount.getType()+""+String.valueOf(tboutaccount.getMoney())+"元"+tboutaccount.getTime();
+            //strInfo[m]=tboutaccount.getId()+"|"+tboutaccount.getType()+""+String.valueOf(tboutaccount.getMoney())+"元"+tboutaccount.getTime();
+            strInfo[m]=tboutaccount.getId()+"|"+tboutaccount.getType()+""+String.valueOf(tboutaccount.getMoney())+"元    "+tboutaccount.getTime();
             m++;
 
         }
@@ -67,12 +74,12 @@ public class OutAccountInfo extends Activity {
             }
         });
         //返回按钮
-        btnback.setOnClickListener(new View.OnClickListener() {
+      /*  btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
     }
 
     private void ShowInfo(int intType){
@@ -94,5 +101,13 @@ public class OutAccountInfo extends Activity {
         ArrayAdapter arrayAdapter1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfo);
         listinfo.setAdapter(arrayAdapter1);*/
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Toast.makeText(fl_MainActivity.this,"返回主界面",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, com.xiaoke.accountsoft.activity.MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

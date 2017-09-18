@@ -35,6 +35,8 @@ public class Login extends AppCompatActivity {
        /* DBOpenHelper helper=new DBOpenHelper(Login.this);
         helper.getWritableDatabase();*/
 
+        final EditText txtlogin=(EditText)findViewById(R.id.txtLogin);  //获取密码文本框
+        Button btnlogin=(Button) findViewById(R.id.btnLogin);            //获取"登录"按钮
 
         DBPwd dao=new DBPwd(Login.this);
         int count=0;
@@ -59,8 +61,16 @@ public class Login extends AppCompatActivity {
             });
             dialog.show();
         }
-        final EditText txtlogin=(EditText)findViewById(R.id.txtLogin);  //获取密码文本框
-        Button btnlogin=(Button) findViewById(R.id.btnLogin);            //获取"登录"按钮
+
+        //新增 罗  记住密码
+        else{
+            DBPwd pwd=new DBPwd(Login.this);
+            tb_pwd pwd1=new tb_pwd();
+            pwd1=pwd.getpwd();
+            txtlogin.setText(pwd1.getPassword());
+        }
+
+
         btnlogin.setOnClickListener(new View.OnClickListener() {        //为"登录"按钮设置监听事件
             @Override
             public void onClick(View view) {
@@ -84,7 +94,7 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(Login.this,"请输入正确的密码",Toast.LENGTH_SHORT).show();
                     }
                 }
-                txtlogin.setText("");                                   //清空密码文本框
+              //注释 罗  txtlogin.setText("");                                   //清空密码文本框
 
             }
         });
