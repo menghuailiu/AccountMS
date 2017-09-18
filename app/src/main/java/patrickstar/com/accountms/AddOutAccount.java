@@ -48,7 +48,7 @@ public class AddOutAccount extends Activity {
         btnOutSave=(Button)findViewById(R.id.btnOutSave);//获取"保存"按钮
         btnOutCancel=(Button)findViewById(R.id.btnOutCancel);//获取"取消"按钮
         btnOutBack=(Button)findViewById(R.id.btnOutBack);//获取返回按钮
-        //点击获取时间
+        //点击获取时间2edewdw
         txtOutTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
